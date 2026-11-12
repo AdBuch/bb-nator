@@ -50,6 +50,9 @@ The mentor needs an operational dashboard to **track progress, create/assign new
 - Coverage analysis: which official workplace goals have not yet been taught or verified?
 
 ### Integration model
+- **Architectural decision:** BB-NATOR connects to Jira and GitLab **directly** with own scoped Spring adapters. Never use Tinyops as an ordinary data proxy; its personal engineering scope differs from the apprenticeship cohort. See [INTEGRATION_AND_REUSE_PLAN.md](../architecture/INTEGRATION_AND_REUSE_PLAN.md).
+- **BCS exception:** connect directly to the separate BCS-Agent workflow API for approved read-only apprentice time summaries, not to Tinyops and not directly to brittle Projectron login internals. The BCS Agent source/deployment must be audited before live access.
+
 - **Jira:** source of truth for tasks; synchronize references, status, estimates and educational mappings; avoid duplicating ticket editing.
 - **GitLab:** source of truth for code/MRs/reviews/pipelines; evidence links and metadata, not source-code ingestion by default.
 - **Zeiterfassung:** optionally connect company time tool (e.g. Projectron/BCS if approved) for project/time context. Separate *official work time*, *self-declared learning time* and *focus timer*. No automatic time booking without explicit approval.
