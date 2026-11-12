@@ -7,6 +7,8 @@ Build an educational tool that strengthens apprentice independence, practical co
 Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test → human-approved merge → next step**.
 
 ## Required reference documents
+- [Product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
+- [Release targets and acceptance gates](docs/requirements/RELEASES.md)
 - [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
 - [Release branches and specifications](docs/requirements/RELEASES.md)
 
