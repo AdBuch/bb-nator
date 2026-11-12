@@ -12,6 +12,7 @@ Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test 
 - [UX mockup/wireframe specification](docs/design/UX_WIREFRAMES.md)
 - [Release targets and acceptance gates](docs/requirements/RELEASES.md)
 - [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
+- [Direct integration and reuse boundaries: Tinyops, BCS, Jira, GitLab](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
 - [Release branches and specifications](docs/requirements/RELEASES.md)
 
 ## Architecture
