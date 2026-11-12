@@ -8,6 +8,7 @@
 - [Complete product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
 - [Berufsbildner cockpit and learning-task management specification](docs/requirements/BB_COCKPIT.md)
 - [Three UX mockup wireframes](docs/design/UX_WIREFRAMES.md)
+- [Direct integration and reuse plan (Tinyops, BCS, Jira, GitLab)](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
 - [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
 
 ## Mission
