@@ -2,6 +2,9 @@
 
 This is the **operational entry point** for Claude, Codex, Goose and other coding agents. Read [AGENTS.md](AGENTS.md) first.
 
+## Architecture and release branch conventions
+Read [TECHNOLOGY.md](docs/architecture/TECHNOLOGY.md) and [RELEASES.md](docs/requirements/RELEASES.md) before planning. Use the named release branch from RELEASES.md, and feature branches from that release branch. Never create all future release branches in advance.
+
 ## Golden loop: one feature at a time
 **Planning → Developing → Reviewing → Testing → Human-approved Merging → Next Step**
 
