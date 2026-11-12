@@ -4,6 +4,10 @@
 
 > Status: **planning / foundation**. The features below are targets, not yet implemented.
 
+## Product specification
+- [Complete product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
+- [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
+
 ## Mission
 Help apprentices become independent, responsible software engineers while supporting the Swiss **Informatiker/in EFZ, Applikationsentwicklung (BiVo 2021)** learning objectives. The portal connects educational goals, practical evidence, mentoring, reflection, focus habits and preparation for the qualification procedure (QV/IPA).
 
@@ -43,6 +47,8 @@ STEPS.md                 Agent execution sequence
 Directories will be added as implementation begins.
 
 ## Roadmap (indicative, weekly milestones)
+
+Detailed release outcomes and acceptance criteria are maintained in [RELEASES.md](docs/requirements/RELEASES.md).
 | Release | Focus |
 | --- | --- |
 | 0.1 | Foundation: skeleton, Docker, database, CI, roles |
