@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: BB-NATOR Technical API
+  version: 0.1.0
+  description: Public technical endpoints only. Learner/mentor APIs are not implemented.
+servers:
+  - url: /api/v1
+paths:
+  /system/status:
+    get:
+      summary: Technical application status
+      operationId: getSystemStatus
+      tags: [System]
+      responses:
+        '200':
+          description: System status response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemStatus'
+components:
+  schemas:
+    SystemStatus:
+      type: object
+      required: [service, status, version]
+      properties:
+        service:
+          type: string
+          example: bb-nator
+        status:
+          type: string
+          enum: [READY]
+        version:
+          type: string
+          example: 0.1.0
