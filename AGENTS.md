@@ -6,6 +6,10 @@ Build an educational tool that strengthens apprentice independence, practical co
 ## Mandatory workflow
 Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test → human-approved merge → next step**.
 
+## Required reference documents
+- [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
+- [Release branches and specifications](docs/requirements/RELEASES.md)
+
 ## Architecture
 - Monorepo; modular monolith.
 - Java 21, Spring Boot, Maven, Angular, PostgreSQL, Flyway and Docker Compose.
