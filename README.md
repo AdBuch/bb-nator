@@ -24,7 +24,7 @@ Help apprentices become independent, responsible software engineers while suppor
 
 ## v0.1 Foundation Quick Start
 
-On the `release/0.1-foundation` branch, BB-NATOR includes a **runnable foundation**: Spring Boot API, Angular preview UI, PostgreSQL/Flyway, Docker Compose and CI. Authentication and real learner data are NOT implemented yet.
+On the `release/0.1-foundation` branch, BB-NATOR contains a **runnable foundation scaffold (pending CI verification)**: Spring Boot API, Angular preview UI, PostgreSQL/Flyway, Docker Compose and CI. Authentication and real learner data are NOT implemented yet.
 
 ```bash
 git checkout release/0.1-foundation
@@ -79,6 +79,13 @@ Detailed release outcomes and acceptance criteria are maintained in [RELEASES.md
 | 1.0 | Operational hardening, accessibility, privacy, backup and exports |
 
 Milestones are **targets, not commitments**. Release gates are based on tests, review, security and actual usability.
+
+## Foundation build and development
+- [Local setup and test commands](docs/process/LOCAL_DEVELOPMENT.md)
+- [Release 0.1 acceptance checklist](docs/requirements/RELEASE_0_1.md)
+- [Module layout guidance](docs/architecture/MODULE_TEMPLATE.md)
+- [OpenAPI technical contract](docs/api/openapi.yaml)
+- [CI workflow](.github/workflows/ci.yml)
 
 ## Working with AI agents
 Read [STEPS.md](STEPS.md) and [AGENTS.md](AGENTS.md) before changing code.
