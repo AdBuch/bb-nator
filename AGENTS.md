@@ -8,6 +8,8 @@ Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test 
 
 ## Required reference documents
 - [Product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
+- [Mentor dashboard, task creation and evidence workflows](docs/requirements/BB_COCKPIT.md)
+- [UX mockup/wireframe specification](docs/design/UX_WIREFRAMES.md)
 - [Release targets and acceptance gates](docs/requirements/RELEASES.md)
 - [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
 - [Release branches and specifications](docs/requirements/RELEASES.md)
