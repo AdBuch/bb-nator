@@ -14,6 +14,14 @@ BB-NATOR is an apprenticeship development cockpit for Swiss Informatiker/in EFZ,
 
 The last two are **external learning locations**, not subordinate to the company. The portal shows their alignment and progress without claiming to replace their official records. Source documents are versioned; imported goals are verified against authoritative originals. The seven perspectives feed a **single individual development plan**, not seven isolated checklists.
 
+## Berufsbildner Cockpit: action-first workspace
+
+The mentor needs an operational dashboard to **track progress, create/assign new learning tasks, follow up with apprentices and evaluate evidence**, not just browse charts. Key screens are: mentor overview, individual learner development view, guided task creation, and pending reviews. Tasks are matched to goals across the seven perspectives; the mentor can identify uncovered mandatory BiVo goals and assign focused learning work.
+
+**Source-of-truth decision:** manual learning tasks and their goal mappings belong to BB-NATOR. Jira remains authoritative for linked Jira issues, GitLab for MRs/pipelines. Starting at v0.4, mentors may explicitly create/link Jira EDU issues from the task wizard after preview; finishing an issue does **not** automatically verify competency.
+
+**Details and screen wireframes:** [BB_COCKPIT.md](BB_COCKPIT.md) and [UX_WIREFRAMES.md](../design/UX_WIREFRAMES.md).
+
 ## Core domain model
 - `Apprentice`, `Mentor`, `Cohort`, `Semester`
 - `GoalSource` (BiVo/company/mentor/apprentice/learning-path/uek/school), `Goal`, `GoalVersion`, `GoalRelation`
@@ -33,6 +41,8 @@ The last two are **external learning locations**, not subordinate to the company
 - Progress over time, without public ranking or surveillance.
 
 ### Berufsbildner dashboard
+- **+ Neue Lernaufgabe** opens a six-step wizard: purpose, goal mapping, acceptance criteria, hints, assignment, preview/publish.
+- Task board and pending review queue for follow-up; track goals as planned/practiced/evidenced/mentor-verified.
 - Overview of all apprentices: milestones, coverage of official goals, pending reviews, risks and upcoming check-ins.
 - Drill-down into learning path, Jira tickets, GitLab merge requests, evidence, quiz results and reflections.
 - Semester reports, documented feedback and goal agreements; school/üK alignment.

@@ -6,12 +6,15 @@
 
 ## Product specification
 - [Complete product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
+- [Berufsbildner cockpit and learning-task management specification](docs/requirements/BB_COCKPIT.md)
+- [Three UX mockup wireframes](docs/design/UX_WIREFRAMES.md)
 - [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
 
 ## Mission
 Help apprentices become independent, responsible software engineers while supporting the Swiss **Informatiker/in EFZ, Applikationsentwicklung (BiVo 2021)** learning objectives. The portal connects educational goals, practical evidence, mentoring, reflection, focus habits and preparation for the qualification procedure (QV/IPA).
 
 ## Intended features
+- **Mentor cockpit:** review progress, identify learning gaps, create and assign tasks, verify evidence and prepare reports.
 - **Learning path:** eight-semester roadmap, official competency goals, individual interests and company objectives.
 - **Daily companion:** daily goals, “What did I achieve today?”, learning journal and optional focus sessions.
 - **Evidence:** links to Jira EDU tickets, GitHub/GitLab merge requests, tests and mentor evaluations.
