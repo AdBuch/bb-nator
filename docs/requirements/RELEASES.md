@@ -1,27 +1,33 @@
-# Release Specification and Branch Plan
+# BB-NATOR Release Targets and Agent Branch Plan
 
-All branch names are **reserved conventions**, not necessarily created Git refs. Release branches are created only when work on that release starts. One active release branch at a time; small feature branches may branch from the active release branch.
+**Product goal:** See [PRODUCT_VISION.md](PRODUCT_VISION.md). Each release is a usable increment toward a complete, privacy-conscious vocational learning and development cockpit. Weekly milestones are aspirational, not guaranteed.
 
-| Version | Release branch | Scope / release gate |
-| --- | --- | --- |
-| v0.1 Foundation | `release/0.1-foundation` | Spring Boot/Angular skeleton, PostgreSQL/Flyway, Docker, CI and baseline tests |
-| v0.2 Learning Path | `release/0.2-learning-path` | Versioned BiVo goals, eight-semester plan, personal goals and competency mapping |
-| v0.3 Daily Companion | `release/0.3-daily-companion` | Daily wrap-up, journal, optional focus timer and privacy controls |
-| v0.4 Connected Learning | `release/0.4-connected-learning` | Jira EDU/Git integration, evidence links and sync error handling |
-| v0.5 Gamification | `release/0.5-gamification` | XP, badges, skill tree and first learning mini-game |
-| v0.6 Mentoring | `release/0.6-mentoring` | Quizzes, mentoring feedback, check-ins and formal semester reports |
-| v0.7 Smart Learning | `release/0.7-smart-learning` | Three-stage ticket hints, optional AI provider, safe context and approval |
-| v0.8 QV Readiness | `release/0.8-qv-readiness` | IPA practice, QV readiness, interview preparation and gap analysis |
-| v1.0 Platform | `release/1.0-platform` | Security/privacy audit, accessibility, backup/restore, exports, operational docs |
+| Release | Reserved branch | Product target / demo | Acceptance gate |
+| --- | --- | --- | --- |
+| **v0.1 Foundation** | `release/0.1-foundation` | Working Angular + Spring Boot + PostgreSQL monorepo, Docker Compose, Flyway, auth/roles baseline, initial learner/mentor dashboard shells, CI. | Local startup, tests, sample data, documented API and security boundaries. |
+| **v0.2 Seven Perspectives** | `release/0.2-learning-path` | Versioned official BiVo workplace goals plus **company**, **mentor vision**, **apprentice wishes**, **task learning path**, **üK**, **school**; eight-semester roadmap, individual plans and goal relationships. | A fictional learner's complete plan shows all seven perspectives and links tasks to goals; missing mandatory goals identifiable. |
+| **v0.3 Daily Companion** | `release/0.3-daily-companion` | Daily goals, “What did I achieve today?”, learning journal, optional focus timer and learning-session tracking, personal progress charts. | Learner completes a day and sees a history; time types remain distinct; opt-in/privacy verified. |
+| **v0.4 Connected Learning** | `release/0.4-connected-learning` | Jira EDU tasks, GitLab MRs/reviews/pipelines as evidence; time-tracking integration contract and optional approved read-only adapter; school/üK manual imports. | Linked task → goal → evidence visible; safe sync/retry/error handling; no duplicate source-of-truth. |
+| **v0.5 Gamification** | `release/0.5-gamification` | Skill tree, XP, badges, focus milestones, first Bug Hunter mini-game and knowledge-check foundation. | Rewards based on learning activities, no public rankings, no grades inferred from XP/time. |
+| **v0.6 Mentoring & Documentation** | `release/0.6-mentoring` | Knowledge-check question bank, attempts, BB feedback, check-ins, formal semester Bildungsberichte, learning documentation and protected uploads for certificates/school records. | Mentor can review evidence, create a report and export it; permissions tested; school/üK data provenance clear. |
+| **v0.7 Smart Learning** | `release/0.7-smart-learning` | Context-aware multi-level hints for Jira tickets, mentor-approved hint library, optional AI-generated suggestions, adaptive next-task recommendations. | Hints support thinking without revealing full solutions; safe context filtering, audit and human control. |
+| **v0.8 QV Readiness** | `release/0.8-qv-readiness` | IPA/mock IPA milestones, Fachgespräch practice, official-goal gap analysis, QV preparation dashboard, individualized improvement plans. | Readiness evidence and gaps are transparent, not a fabricated pass probability. |
+| **v1.0 Production Platform** | `release/1.0-platform` | Polished apprentice + BB development dashboards, consolidated reporting across seven perspectives, secure deployment, accessibility, audit, retention, backup/restore and export. | End-to-end demo from goal → task → evidence → reflection → mentor review → report; operational/security checks passed. |
 
-## Workflow per release
-1. **Planning:** start from latest `main`, create the named release branch, plan small tasks and obtain approval.
-2. **Developing:** create `feat/<version>-<ticket>-<slug>` from the release branch. Commit in small units.
-3. **Reviewing:** open PR targeting the release branch; independent review, fix findings.
-4. **Testing:** run automated and functional tests; record evidence.
-5. **Merging:** human-approved feature PR into release branch; then human-approved release PR into `main`.
-6. **Next step:** tag `v<version>` on main after release, update docs, then start next release.
+## Agent release workflow
+1. **Planning:** read `README.md`, `AGENTS.md`, `STEPS.md`, `docs/architecture/TECHNOLOGY.md`, `PRODUCT_VISION.md`, this file; produce small tasks, acceptance tests, dependencies, risks. Obtain approval.
+2. **Branching:** create the named release branch from current `main` **only when that release starts**. Create `feat/<version>-<ticket>-<slug>` from the active release branch.
+3. **Developing:** implement small changes with tests, migrations, documentation and meaningful commits.
+4. **Reviewing:** independent review of PR targeting release branch; resolve blocking findings.
+5. **Testing:** run unit/integration/UI tests, authorization/privacy cases and Docker smoke tests as applicable; report exact results.
+6. **Merging:** human-approved feature PRs into release branch, then human-approved release PR into `main`; tag `v<version>`.
+7. **Next step:** update release notes, verify outcomes, select next feature/release.
 
-**Never** create all release branches at once: stale long-lived branches increase merge conflicts. Names are fixed here for reproducibility.
+**Do not create all future branches now**: reserved branch names are specifications, not live Git refs. No autonomous merges to main.
 
-Read [TECHNOLOGY.md](../architecture/TECHNOLOGY.md), [STEPS.md](../../STEPS.md), and [AGENTS.md](../../AGENTS.md).
+## Cross-release nonfunctional requirements
+- Domain and application layers independent of Spring/JPA; frontend feature-oriented architecture.
+- Versioned learning goals and evidence, not simple completion counters.
+- Role-based access and data minimization from v0.1.
+- Privacy and human oversight for reflections, time records, evaluations and AI.
+- Accessible, responsive Angular UI and reliable automated tests.
