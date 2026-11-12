@@ -6,6 +6,12 @@ Build an educational tool that strengthens apprentice independence, practical co
 ## Mandatory workflow
 Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test → human-approved merge → next step**.
 
+## Release 0.1 implementation resources
+- [Release 0.1 execution checklist](docs/requirements/RELEASE_0_1.md)
+- [Local development & commands](docs/process/LOCAL_DEVELOPMENT.md)
+- [Module and onion-layer template](docs/architecture/MODULE_TEMPLATE.md)
+- [Agent roles](agents/PLANNER.md) ([Developer](agents/DEVELOPER.md), [Reviewer](agents/REVIEWER.md), [Tester](agents/TESTER.md))
+
 ## Required reference documents
 - [Product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
 - [Mentor dashboard, task creation and evidence workflows](docs/requirements/BB_COCKPIT.md)

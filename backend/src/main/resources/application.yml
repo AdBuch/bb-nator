@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: bb-nator
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:bbnator}
+    username: ${DB_USER:bbnator}
+    password: ${DB_PASSWORD:}
+  flyway:
+    enabled: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
