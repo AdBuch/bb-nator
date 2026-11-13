@@ -2,7 +2,9 @@ openapi: 3.1.0
 info:
   title: BB-NATOR Technical API
   version: 0.1.0
-  description: Public technical endpoints only. Learner/mentor APIs are not implemented.
+  description: >-
+    Public technical endpoints only. Learner/mentor APIs are not implemented.
+    Every route not listed here answers 403 until sign-in exists (ADR-0002).
 servers:
   - url: /api/v1
 paths:
@@ -18,21 +20,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemStatus'
-  /{deniedPath}:
-    parameters:
-      - name: deniedPath
-        in: path
-        required: true
-        schema:
-          type: string
-    get:
-      summary: Any other route (fail-closed)
-      description: Every route that is not listed here is denied until sign-in exists (ADR-0002).
-      operationId: deniedByDefault
-      tags: [System]
-      responses:
-        '403':
-          description: Access denied
 components:
   schemas:
     SystemStatus:
