@@ -5,7 +5,8 @@ RUN npm install --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-FROM nginx:1.28-alpine
+# Unprivileged image: master and workers run as UID 101, listening on 8080.
+FROM nginxinc/nginx-unprivileged:1.28-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /workspace/dist/bb-nator/browser/ /usr/share/nginx/html/
 EXPOSE 8080

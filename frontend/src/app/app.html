@@ -6,8 +6,8 @@
     </div>
     <div class="nav-label">VORSCHAU · v0.1</div>
     <nav class="nav">
-      <button type="button" [class.selected]="activeView() === 'mentor'" (click)="selectView('mentor')">▦ <span>Berufsbildner</span></button>
-      <button type="button" [class.selected]="activeView() === 'learner'" (click)="selectView('learner')">◇ <span>Lernende</span></button>
+      <button type="button" [class.selected]="activeView() === 'mentor'" [attr.aria-current]="activeView() === 'mentor' ? 'page' : null" (click)="selectView('mentor')"><i aria-hidden="true">▦</i> <span>Berufsbildner</span></button>
+      <button type="button" [class.selected]="activeView() === 'learner'" [attr.aria-current]="activeView() === 'learner' ? 'page' : null" (click)="selectView('learner')"><i aria-hidden="true">◇</i> <span>Lernende</span></button>
     </nav>
     <div class="sidebar-note">Lernen. Entwickeln.<br>Verantwortung übernehmen.</div>
   </aside>
@@ -25,13 +25,16 @@
           <h1>Ausbildung entwickeln.</h1>
           <p>Eine zentrale Plattform für Lernziele, Begleitung und echte Kompetenzentwicklung.</p>
         </div>
-        <button type="button" class="primary-button" disabled title="Aufgabenverwaltung wird in Release 0.2 implementiert">+ Neue Lernaufgabe · ab v0.2</button>
+        <div>
+          <button type="button" class="primary-button" disabled aria-describedby="task-hint">+ Neue Lernaufgabe</button>
+          <small id="task-hint" class="button-hint">Aufgabenverwaltung folgt in Release 0.2.</small>
+        </div>
       </section>
 
       <section class="summary-grid" aria-label="Foundation Status">
-        <article class="metric"><div class="metric-icon">◈</div><span>Bildungsplan</span><strong>7 Perspektiven</strong><small>Gemeinsamer Lernpfad</small></article>
-        <article class="metric"><div class="metric-icon">◎</div><span>Integration</span><strong>Jira &amp; GitLab</strong><small>Geplant für v0.4</small></article>
-        <article class="metric"><div class="metric-icon">✓</div><span>Technischer Status</span><strong>v0.1 Foundation</strong><small>{{ apiState() }}</small></article>
+        <article class="metric"><div class="metric-icon" aria-hidden="true">◈</div><span>Bildungsplan</span><strong>7 Perspektiven</strong><small>Gemeinsamer Lernpfad</small></article>
+        <article class="metric"><div class="metric-icon" aria-hidden="true">◎</div><span>Integration</span><strong>Jira &amp; GitLab</strong><small>Geplant für v0.4</small></article>
+        <article class="metric"><div class="metric-icon" aria-hidden="true">✓</div><span>Technischer Status</span><strong>v0.1 Foundation</strong><small role="status" aria-live="polite">{{ apiState() }}</small></article>
       </section>
 
       <div class="panels">
@@ -40,15 +43,15 @@
           <p>Sieben Quellen, ein individueller Entwicklungsplan. Verbindliche BiVo-Ziele bleiben getrennt von Firmen- und persönlichen Zielen.</p>
           <ol class="perspective-list">
             @for (perspective of perspectives; track perspective) {
-              <li><span class="list-symbol">✓</span>{{ perspective }}</li>
+              <li><span class="list-symbol" aria-hidden="true">{{ $index + 1 }}</span>{{ perspective }}</li>
             }
           </ol>
         </section>
         <section class="panel">
           <div class="panel-heading"><h2>Nächste Meilensteine</h2><span class="soft-label">Roadmap</span></div>
-          <div class="milestone"><span class="dot active"></span><div><strong>v0.1 · Foundation</strong><p>API, Oberfläche, Datenbank, CI und Docker.</p></div></div>
-          <div class="milestone"><span class="dot"></span><div><strong>v0.2 · Learning Path</strong><p>Kompetenzmatrix, Lernende und Aufgabenvergabe.</p></div></div>
-          <div class="milestone"><span class="dot"></span><div><strong>v0.3 · Daily Companion</strong><p>Lernjournal, Fokus und Tagesreflexion.</p></div></div>
+          <div class="milestone"><span class="dot active" aria-hidden="true"></span><div><strong>v0.1 · Foundation (aktuell)</strong><p>API, Oberfläche, Datenbank, CI und Docker.</p></div></div>
+          <div class="milestone"><span class="dot" aria-hidden="true"></span><div><strong>v0.2 · Learning Path</strong><p>Kompetenzmatrix, Lernende und Aufgabenvergabe.</p></div></div>
+          <div class="milestone"><span class="dot" aria-hidden="true"></span><div><strong>v0.3 · Daily Companion</strong><p>Lernjournal, Fokus und Tagesreflexion.</p></div></div>
           <div class="empty-note">Keine echten Lernenden- oder Leistungsdaten in dieser Demo.</div>
         </section>
       </div>
