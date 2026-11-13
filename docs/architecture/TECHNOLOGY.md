@@ -14,13 +14,13 @@ Use Spring Boot, Spring Web, Spring Validation, Spring Security, Spring Data JPA
 
 Suggested package layout **within each business module**:
 ```text
-backend/src/main/java/.../modules/learningpath/
+backend/src/main/java/ch/bbnator/learningpath/
   domain/             # entities, value objects, rules, domain services, ports
   application/        # use cases, commands/queries, orchestration, port interfaces
   infrastructure/     # Spring Data repositories, JPA mappings, external adapters
   interfaces/rest/    # REST controllers, request/response DTOs, mappers
 ```
-Other modules may include `apprentices`, `competencies`, `journal`, `focus`, `mentoring`, `gamification`, `integrations`, `assessment`.
+The planned module list is maintained in [MODULE_TEMPLATE.md](MODULE_TEMPLATE.md).
 
 ### Dependency rule
 `interfaces/rest → application → domain`; infrastructure implements inward-facing ports. The **domain imports no Spring/JPA classes**. Use explicit mapping between domain models, persistence entities and REST DTOs. Spring Data `JpaRepository` interfaces live in infrastructure, not domain.

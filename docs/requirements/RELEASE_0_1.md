@@ -24,12 +24,12 @@ A collaborator can clone and start a reproducible, privacy-conscious foundation,
 - [ ] `cp .env.example .env && docker compose up --build -d` starts all three containers and Flyway migration succeeds.
 - [ ] `bash scripts/smoke.sh` confirms Angular index and API status.
 - [ ] `GET /api/v1/system/status` returns a structured technical READY response; no private apprentice endpoint is exposed.
-- [ ] Backend architecture test/example remains framework-free in domain/application.
+- [ ] Backend architecture test (`OnionArchitectureTest`) keeps domain/application framework-free.
 - [ ] Source repo contains no real personal data or secrets.
 - [ ] Independent review, test evidence, and human approval before merge to main.
 
 ## Proposed next tasks after foundation
-1. Formal API DTO/errors/security design + OIDC provider decision (before personal data).
+1. Tenant, user and role foundation with LDAP sign-in and protection classes ([ADR-0002](../architecture/ADR-0002-identity-tenancy-data-protection.md), [PRIVACY.md](PRIVACY.md)); API error format.
 2. Import and version official Swiss BiVo competence hierarchy with authoritatively verified source.
 3. Apprentice/mentor domain and authorized access, synthetic fixtures only.
 4. Task authoring and assignment linked to multiple learning goals.
@@ -39,4 +39,4 @@ A collaborator can clone and start a reproducible, privacy-conscious foundation,
 - Current mentor/learner switch is **illustrative only**, not authentication.
 - No real learner/task/report database schema, business endpoints, SSO or Jira/BCS integrations yet.
 - No npm lockfile is committed in this bootstrap. Add a generated `package-lock.json` from the first successful `npm install`, then change CI and frontend Dockerfile from `npm install` to `npm ci` before production deployment.
-- External build dependencies could not be fetched in ChatGPT's execution environment; actual GitHub CI and Docker smoke must confirm release gates.
+- Release gates are confirmed by GitHub CI (backend, frontend, Docker smoke), not by a local agent environment.

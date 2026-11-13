@@ -33,4 +33,4 @@ Keep `core/` for auth/config/shared HTTP behavior and `shared/` for reusable UI,
 `apprentices`, `learning-path`, `goals`, `learning-tasks`, `evidence`, `mentoring`, `journal`, `knowledge-checks`, `gamification`, `integrations`.
 
 ## Safety
-Any learner personal record requires an approved SSO/RBAC and retention design before implementation. Use fictional examples only in this public repository.
+Any learner personal record follows [ADR-0002](ADR-0002-identity-tenancy-data-protection.md) and [PRIVACY.md](../requirements/PRIVACY.md): tenant column, declared protection class, owner and visibility. Use fictional examples only in this public repository.

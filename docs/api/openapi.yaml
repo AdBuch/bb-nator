@@ -18,6 +18,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemStatus'
+  /{deniedPath}:
+    parameters:
+      - name: deniedPath
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Any other route (fail-closed)
+      description: Every route that is not listed here is denied until sign-in exists (ADR-0002).
+      operationId: deniedByDefault
+      tags: [System]
+      responses:
+        '403':
+          description: Access denied
 components:
   schemas:
     SystemStatus:
