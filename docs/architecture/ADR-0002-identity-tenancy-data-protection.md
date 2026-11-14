@@ -16,7 +16,7 @@ v0.2 introduces the first personal records (apprentices, mentors, assignments). 
 - Browser sessions use a server-side session with an `HttpOnly`, `SameSite=Lax` cookie and CSRF protection enabled. The stateless, CSRF-disabled configuration of v0.1 is only valid while no login exists.
 
 ### 2. Multi-tenant from the first domain migration
-- Every table holding business or personal data carries a non-null `tenant_id`.
+- Every **tenant-owned** table holding business or personal data carries a non-null `tenant_id`. Shared official BiVo source-catalogue tables are global/read-only; tenant-specific assignments, annotations and mappings always carry `tenant_id`.
 - Isolation is enforced in PostgreSQL with row-level security; the application sets the tenant for each transaction. Application-level filtering alone is not accepted.
 - The local installation runs with exactly one tenant. Tenant onboarding, billing and administration UIs are out of scope until a second tenant is real.
 - Official BiVo goals are a global, read-only catalogue. Goals from company, mentor, apprentice and learning path belong to a tenant.

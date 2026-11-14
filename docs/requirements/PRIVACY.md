@@ -6,7 +6,7 @@
 This is not legal advice. Each operating company remains responsible for its own legal assessment.
 
 ## Principle
-Every record carries a protection class. Visibility, retention and access logging follow from the class, so a developer cannot add personal data without deciding how it is protected.
+Every persisted record containing personal data or tenant-owned training information carries a protection class. Visibility, retention and access logging follow from the class, so a developer cannot add personal data without deciding how it is protected. Pure technical migration metadata and the global read-only BiVo source catalogue are not personal records.
 
 ## 1. Protection classes
 
@@ -17,7 +17,7 @@ Every record carries a protection class. Visibility, retention and access loggin
 | **C Voluntary** | journal drafts, mood check, focus sessions, XP | consent | apprentice only |
 | **D Sensitive** | school grades, Bildungsberichte, certificates, absences | apprenticeship, strictly limited | apprentice and explicitly authorised roles |
 
-Each persisted entity declares its class in code. An architecture test fails the build when an entity has none.
+Each persisted entity containing personal data or tenant-owned training information declares its class in code. An architecture test must fail the build when such an entity has none. Pure technical metadata and globally published, read-only educational source catalogue entities are exempt.
 
 ## 2. Ownership and visibility
 - The **apprentice owns** records about them. Exceptions are mentor-authored evaluations and formal reports: the mentor is author, the apprentice remains the data subject with full read access.
