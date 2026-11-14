@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [main, 'release/**']
+    branches: [main, 'release/**', 'ci/**']
   pull_request:
     branches: [main, 'release/**']
 permissions:
@@ -33,6 +33,12 @@ jobs:
       - name: Install dependencies
         working-directory: frontend
         run: npm install --no-audit --no-fund
+      - name: TEMP export npm lockfile for reproducible builds
+        working-directory: frontend
+        run: |
+          echo BB_NATOR_LOCK_BEGIN
+          base64 -w0 package-lock.json | fold -w120 | sed 's/^/BB_NATOR_LOCK_SEG=/'
+          echo BB_NATOR_LOCK_END
       - name: Unit tests
         working-directory: frontend
         run: npm run test:ci
