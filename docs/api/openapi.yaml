@@ -2,7 +2,9 @@ openapi: 3.1.0
 info:
   title: BB-NATOR Technical API
   version: 0.1.0
-  description: Public technical endpoints only. Learner/mentor APIs are not implemented.
+  description: >-
+    Public technical endpoints only. Learner/mentor APIs are not implemented.
+    The technical GET /actuator/health endpoint is also public outside the /api/v1 base path, with health details disabled. All other paths and methods are denied until sign-in exists (ADR-0002).
 servers:
   - url: /api/v1
 paths:

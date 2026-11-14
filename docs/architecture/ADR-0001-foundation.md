@@ -14,14 +14,14 @@
   - `infrastructure/`: Spring Data JPA implementations and external adapters.
   - `interfaces/rest/`: controllers, DTOs and mapping.
 - Frontend grouped by feature: `domain/`, `application/`, `infrastructure/`, `pages/` and `components/`.
-- Fail-closed API access; only technical status and health public until OIDC is evaluated.
+- Fail-closed API access; only technical status and health public until sign-in exists (LDAP first, see [ADR-0002](ADR-0002-identity-tenancy-data-protection.md)).
 - Real Jira and GitLab access from future BB-NATOR adapters, not through Tinyops; BCS integration requires its own reviewed boundary. See pending architecture PR if unmerged.
 
 ## Rationale
 Start simple and testable while preserving boundaries for educational goal and learner data. Do not add microservices, Kubernetes, autonomous merges or attendance monitoring to v0.1.
 
 ## Risks and follow-ups
-- Compatible versions must be proven in CI.
+- Compatible versions are proven by CI on `release/0.1-foundation`; keep them pinned.
 - Frontend npm lockfile is a priority follow-up.
 - SSO/RBAC and data retention must be reviewed before implementing person data.
 - Backend/Frontend smoke tests prove bootstrap, not product readiness.
