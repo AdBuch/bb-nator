@@ -4,7 +4,7 @@ info:
   version: 0.1.0
   description: >-
     Public technical endpoints only. Learner/mentor APIs are not implemented.
-    Every route not listed here answers 403 until sign-in exists (ADR-0002).
+    The technical GET /actuator/health endpoint is also public outside the /api/v1 base path, with health details disabled. All other paths and methods are denied until sign-in exists (ADR-0002).
 servers:
   - url: /api/v1
 paths:
