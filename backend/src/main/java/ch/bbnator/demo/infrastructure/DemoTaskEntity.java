@@ -16,5 +16,5 @@ public class DemoTaskEntity {
     @Column(name = "learning_goal", nullable = false) public String learningGoal;
     @Column(nullable = false) public String status;
     @Column(nullable = false) public String evidence;
-    protected DemoTaskEntity() {}
+    public DemoTaskEntity() {}
 }
