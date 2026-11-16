@@ -6,14 +6,21 @@ Build an educational tool that strengthens apprentice independence, practical co
 ## Mandatory workflow
 Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test → human-approved merge → next step**.
 
+## Release 0.1 implementation resources
+- [Release 0.1 execution checklist](docs/requirements/RELEASE_0_1.md)
+- [Local development & commands](docs/process/LOCAL_DEVELOPMENT.md)
+- [Module and onion-layer template](docs/architecture/MODULE_TEMPLATE.md)
+- [Agent roles](agents/PLANNER.md) ([Developer](agents/DEVELOPER.md), [Reviewer](agents/REVIEWER.md), [Tester](agents/TESTER.md))
+
 ## Required reference documents
 - [Product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
 - [Mentor dashboard, task creation and evidence workflows](docs/requirements/BB_COCKPIT.md)
 - [UX mockup/wireframe specification](docs/design/UX_WIREFRAMES.md)
 - [Release targets and acceptance gates](docs/requirements/RELEASES.md)
 - [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
-- [Direct integration and reuse boundaries: Tinyops, BCS, Jira, GitLab](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
-- [Release branches and specifications](docs/requirements/RELEASES.md)
+- [Direct Jira/GitLab and BCS Agent integration architecture](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
+- [Identity, tenancy and data protection decisions](docs/architecture/ADR-0002-identity-tenancy-data-protection.md)
+- [Data protection mechanism](docs/requirements/PRIVACY.md)
 
 ## Architecture
 - Monorepo; modular monolith.
