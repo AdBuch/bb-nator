@@ -6,7 +6,7 @@ This is the **operational entry point** for Claude, Codex, Goose and other codin
 Release `v0.1` uses `release/0.1-foundation`. A first runnable scaffold is committed on that branch; the next agent task is to **verify and repair the CI + Docker build** against [the v0.1 checklist](docs/requirements/RELEASE_0_1.md), not to create the scaffold again. Follow `agents/PLANNER.md` before further implementation.
 
 ## Architecture and release branch conventions
-Read [TECHNOLOGY.md](docs/architecture/TECHNOLOGY.md) and [RELEASES.md](docs/requirements/RELEASES.md) before planning. Use the named release branch from RELEASES.md, and feature branches from that release branch. Never create all future release branches in advance.
+Read [TECHNOLOGY.md](docs/architecture/TECHNOLOGY.md), [INTEGRATION_AND_REUSE_PLAN.md](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md) and [RELEASES.md](docs/requirements/RELEASES.md) before planning. Use the named release branch from RELEASES.md, and feature branches from that release branch. Never create all future release branches in advance.
 
 ## Golden loop: one feature at a time
 **Planning → Developing → Reviewing → Testing → Human-approved Merging → Next Step**
