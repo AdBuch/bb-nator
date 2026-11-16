@@ -10,17 +10,17 @@ Status: **target architecture**; not a claim that code exists. Read `AGENTS.md` 
 - Never expose personal apprentice data or proprietary company content in this public repository.
 
 ## Backend: Java 21 / Spring Boot / Maven
-Use Spring Boot, Spring Web, Spring Validation, Spring Security, Spring Data JPA, PostgreSQL, Flyway, Actuator and springdoc OpenAPI where appropriate. Use JUnit 5, Mockito, AssertJ and Testcontainers for tests. Choose mutually compatible maintained versions during v0.1 planning; do not guess versions.
+Use Spring Boot, Spring Web, Spring Validation, Spring Security, Spring Data JPA, PostgreSQL, Flyway, Actuator and springdoc OpenAPI where appropriate. Use JUnit 5, Mockito, AssertJ and Testcontainers for tests. Keep the compatible versions pinned in ADR-0001 and verified by CI; version changes need a review and tested migration plan.
 
 Suggested package layout **within each business module**:
 ```text
-backend/src/main/java/.../modules/learningpath/
+backend/src/main/java/ch/bbnator/learningpath/
   domain/             # entities, value objects, rules, domain services, ports
   application/        # use cases, commands/queries, orchestration, port interfaces
   infrastructure/     # Spring Data repositories, JPA mappings, external adapters
   interfaces/rest/    # REST controllers, request/response DTOs, mappers
 ```
-Other modules may include `apprentices`, `competencies`, `journal`, `focus`, `mentoring`, `gamification`, `integrations`, `assessment`.
+The planned module list is maintained in [MODULE_TEMPLATE.md](MODULE_TEMPLATE.md).
 
 ### Dependency rule
 `interfaces/rest → application → domain`; infrastructure implements inward-facing ports. The **domain imports no Spring/JPA classes**. Use explicit mapping between domain models, persistence entities and REST DTOs. Spring Data `JpaRepository` interfaces live in infrastructure, not domain.
@@ -35,7 +35,7 @@ Other modules may include `apprentices`, `competencies`, `journal`, `focus`, `me
 - Return consistent problem responses and avoid leaking internal exceptions.
 - Make integrations adapters with explicit timeouts and retry policies.
 - Use ports for Jira/Git integrations and optional AI hint providers.
-- No external AI calls with apprentice reflections, grades or company secrets by default.
+- Class C (voluntary) and class D (sensitive) apprentice data must never be sent to external AI providers (PRIVACY.md). Company secrets must not be sent to external AI without explicit company authorization. AI features are disabled per tenant by default.
 
 ## Frontend: Angular / TypeScript
 Use a maintained Angular version, strict TypeScript, standalone components, Angular Router, reactive forms, signals where helpful, and accessible semantic HTML. Prefer built-in Angular capabilities before adding state libraries.

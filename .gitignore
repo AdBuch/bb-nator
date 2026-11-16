@@ -1,0 +1,14 @@
+# Local secrets and build artifacts
+.env
+.env.*
+!.env.example
+**/target/
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+*.log
+.idea/
+.vscode/
+.DS_Store
+*.iml
