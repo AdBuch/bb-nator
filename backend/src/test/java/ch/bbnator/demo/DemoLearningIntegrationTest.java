@@ -38,7 +38,7 @@ class DemoLearningIntegrationTest {
             .andExpect(jsonPath("$.status").value("ASSIGNED"))
             .andReturn();
         String data = result.getResponse().getContentAsString();
-        String id = new com.fasterxml.jackson.databind.ObjectMapper().readTree(data).get("id").asText();
+        String id = com.jayway.jsonpath.JsonPath.read(data, "$.id");
         mvc.perform(patch("/api/v1/demo/tasks/" + id)
                  .contentType(MediaType.APPLICATION_JSON)
                  .content("{\"status\":\"DONE\",\"evidence\":\"VERIFIED\"}"))
