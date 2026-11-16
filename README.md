@@ -9,6 +9,7 @@
 - [Berufsbildner cockpit and learning-task management specification](docs/requirements/BB_COCKPIT.md)
 - [Three UX mockup wireframes](docs/design/UX_WIREFRAMES.md)
 - [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
+- [Data protection mechanism](docs/requirements/PRIVACY.md)
 
 ## Mission
 Help apprentices become independent, responsible software engineers while supporting the Swiss **Informatiker/in EFZ, Applikationsentwicklung (BiVo 2021)** learning objectives. The portal connects educational goals, practical evidence, mentoring, reflection, focus habits and preparation for the qualification procedure (QV/IPA).
@@ -52,7 +53,6 @@ Architecture target: **modular monolith in one monorepo**, with clear domain bou
 ```text
 backend/                 Spring Boot application
 frontend/                Angular application
-infra/                   Docker and deployment configuration
 docs/architecture/       ADRs and technical design
 docs/requirements/       Scope, BiVo mapping and release plans
 docs/process/            Engineering workflow
@@ -68,8 +68,8 @@ Directories will be added as implementation begins.
 Detailed release outcomes and acceptance criteria are maintained in [RELEASES.md](docs/requirements/RELEASES.md).
 | Release | Focus |
 | --- | --- |
-| 0.1 | Foundation: skeleton, Docker, database, CI, roles |
-| 0.2 | BiVo learning goals, semester and individual learning paths |
+| 0.1 | Foundation: skeleton, Docker, database, CI, fail-closed access |
+| 0.2 | Sign-in, roles, tenants, data protection; BiVo learning goals, semester and individual learning paths |
 | 0.3 | Daily wrap-up, learning journal, focus sessions |
 | 0.4 | Jira/Git integration and evidence links |
 | 0.5 | Gamification, skill tree and first learning mini-game |

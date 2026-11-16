@@ -18,7 +18,8 @@ Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test 
 - [UX mockup/wireframe specification](docs/design/UX_WIREFRAMES.md)
 - [Release targets and acceptance gates](docs/requirements/RELEASES.md)
 - [Technology and Onion Architecture](docs/architecture/TECHNOLOGY.md)
-- [Release branches and specifications](docs/requirements/RELEASES.md)
+- [Identity, tenancy and data protection decisions](docs/architecture/ADR-0002-identity-tenancy-data-protection.md)
+- [Data protection mechanism](docs/requirements/PRIVACY.md)
 
 ## Architecture
 - Monorepo; modular monolith.

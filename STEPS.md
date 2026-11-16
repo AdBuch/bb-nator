@@ -29,7 +29,7 @@ Do not skip gates or implement an entire roadmap release in one uncontrolled bat
 **Output:** short implementation plan, task checklist, acceptance criteria and proposed branch name.
 
 ### 2. Developing (Developer)
-- Create a feature branch from current main: `feat/<issue>-<short-name>`.
+- Create a feature branch from the active release branch: `feat/<version>-<ticket>-<slug>` (see RELEASES.md).
 - Implement only the approved task; keep changes cohesive.
 - Write or update tests with code. Add migrations for schema changes.
 - Commit meaningful increments using conventional commits.
@@ -86,10 +86,10 @@ Do not skip gates or implement an entire roadmap release in one uncontrolled bat
 6. Add environment examples, setup guide and safe local seed data.
 7. Demonstrate a clean local startup and successful CI.
 
-**First agent instruction:** Inspect the repository, propose the v0.1 task breakdown and acceptance criteria, then stop for approval. Do not implement yet.
+**Current state:** steps 1–5 and 7 are implemented on `release/0.1-foundation` and verified by CI. Step 6 delivers environment examples and setup guide; seed data follows in v0.2 with the first domain tables. Decisions for v0.2 are recorded in [ADR-0002](docs/architecture/ADR-0002-identity-tenancy-data-protection.md) and [PRIVACY.md](docs/requirements/PRIVACY.md).
 
 ## Later release gates
-- v0.2: complete, versioned official goal import and individual mapping.
+- v0.2: LDAP sign-in with local roles, tenant isolation and protection classes in place before personal data; complete, versioned official goal import and individual mapping.
 - v0.3: journal/focus features with opt-in tracking and no surveillance.
 - v0.4: least-privilege integration, no credentials in source control.
 - v0.5: optional gamification; no ranking of minors or equating XP with skill.

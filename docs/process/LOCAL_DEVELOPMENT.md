@@ -29,7 +29,7 @@ cd backend
 DB_HOST=localhost DB_PORT=5433 DB_NAME=bbnator DB_USER=bbnator DB_PASSWORD='<from-.env>' mvn spring-boot:run
 # terminal 2 (Node 24.15+)
 cd frontend
-npm install
+npm ci
 npm start
 ```
 Visit http://127.0.0.1:4200. Angular dev server proxies `/api` to http://localhost:8080.

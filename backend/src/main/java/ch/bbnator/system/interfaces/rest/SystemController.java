@@ -1,7 +1,6 @@
 package ch.bbnator.system.interfaces.rest;
 
 import ch.bbnator.system.application.GetSystemStatus;
-import ch.bbnator.system.domain.ServiceStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,7 @@ public class SystemController {
     }
 
     @GetMapping("/status")
-    public ServiceStatus status() {
-        return useCase.execute();
+    public SystemStatusResponse status() {
+        return SystemStatusResponse.from(useCase.execute());
     }
 }
