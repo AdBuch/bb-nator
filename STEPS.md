@@ -2,6 +2,10 @@
 
 This is the **operational entry point** for Claude, Codex, Goose and other coding agents. Read [AGENTS.md](AGENTS.md) first.
 
+## Active interactive demo slice
+
+Release v0.2a demo is implemented on `feat/0.2a-demo-and-updater` against `release/0.2-learning-path`. It uses only synthetic records; the view switch is **not login or authorization**. Refer to [the demo release checklist](docs/requirements/RELEASE_0_2A.md) and [updater safety rules](docs/process/UPDATES.md).
+
 ## Active foundation branch
 Release `v0.1` uses `release/0.1-foundation`. A first runnable scaffold is committed on that branch; the next agent task is to **verify and repair the CI + Docker build** against [the v0.1 checklist](docs/requirements/RELEASE_0_1.md), not to create the scaffold again. Follow `agents/PLANNER.md` before further implementation.
 
