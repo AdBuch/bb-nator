@@ -24,6 +24,15 @@ Help apprentices become independent, responsible software engineers while suppor
 - **Learning support:** staged ticket hints, quizzes, mini-games, XP and skill trees. Time and XP are **not** competency grades.
 - **QV readiness:** practical milestones, mock IPA, presentation and technical interview preparation.
 
+## Interactive Demo v0.2a (development PR)
+
+An **interactive synthetic-only demo** is developed in [PR #6](https://github.com/AdBuch/bb-nator/pull/6). Its mentor and learner views allow creating and reviewing learning tasks with persistent PostgreSQL demo records.
+
+- [Demo scope, acceptance criteria and local preview](docs/requirements/RELEASE_0_2A.md)
+- [Git auto-update starter and local admin update button](docs/process/UPDATES.md)
+
+Once merged to main, use `bash scripts/start.sh` (Linux/WSL) or `.\\scripts\\start.ps1` (Windows PowerShell) to fetch new main updates, rebuild containers and enable the local admin updater. **Auto-update occurs through this starter, not through arbitrary `docker compose restart`.**
+
 ## v0.1 Foundation Quick Start
 
 On the `release/0.1-foundation` branch, BB-NATOR contains a **runnable foundation scaffold (pending CI verification)**: Spring Boot API, Angular preview UI, PostgreSQL/Flyway, Docker Compose and CI. Authentication and real learner data are NOT implemented yet.

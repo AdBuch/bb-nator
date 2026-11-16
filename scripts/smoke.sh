@@ -11,6 +11,12 @@ for attempt in $(seq 1 60); do
         echo "SMOKE FAIL: unauthenticated business route returned ${denied}, expected 403" >&2
         exit 1
       fi
+      if [ "${EXPECT_DEMO:-0}" = "1" ]; then
+        curl -fsS --connect-timeout 3 --max-time 5 "${BASE_URL}/api/v1/demo/learners" | grep -q 'Demo Alex' || {
+          echo "SMOKE FAIL: fictional demo learner API missing" >&2
+          exit 1
+        }
+      fi
       echo "SMOKE PASS: API status and Angular index respond; other API routes are denied"
       exit 0
     fi
