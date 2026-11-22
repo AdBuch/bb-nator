@@ -29,9 +29,15 @@ class TenantIsolationIntegrationTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /** Switch to the role the application uses; the owner/superuser would bypass RLS. */
+    private void asApplicationRole() {
+        jdbcTemplate.execute("SET LOCAL ROLE bbnator_app");
+    }
+
     @Test
     void tenantSeesOnlyOwnUsers() {
         seedTenants();
+        asApplicationRole();
         TenantScope.bind(entityManager, "tenant-a");
         assertEquals(1, countUsers());
         assertEquals("tenant-a", jdbcTemplate.queryForObject("SELECT tenant_id FROM app_user", String.class));
@@ -40,12 +46,14 @@ class TenantIsolationIntegrationTest {
     @Test
     void withoutTenantContextNothingIsVisible() {
         seedTenants();
+        asApplicationRole();
         assertEquals(0, countUsers());
     }
 
     @Test
     void tenantCannotInsertIntoForeignTenant() {
         seedTenants();
+        asApplicationRole();
         TenantScope.bind(entityManager, "tenant-a");
         assertThrows(Exception.class, () -> jdbcTemplate.update(
                 "INSERT INTO app_user (id, tenant_id, ldap_subject, display_name) VALUES (?,?,?,?)",
@@ -67,6 +75,7 @@ class TenantIsolationIntegrationTest {
         insertUser("tenant-b", "bob-b");
         // Reset to no tenant so the seeding context does not leak into the test body.
         jdbcTemplate.queryForObject("SELECT set_config('app.tenant_id', '', true)", String.class);
+        // Seed rows stay visible to the superuser for assertions; RLS is tested under the app role.
     }
 
     private void insertUser(String tenant, String subject) {

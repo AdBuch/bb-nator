@@ -58,3 +58,17 @@ ALTER TABLE mentor_assignment FORCE ROW LEVEL SECURITY;
 CREATE POLICY mentor_assignment_tenant ON mentor_assignment
   USING (tenant_id = current_setting('app.tenant_id', true))
   WITH CHECK (tenant_id = current_setting('app.tenant_id', true));
+
+-- Row-level security does not bind superusers or roles with BYPASSRLS.
+-- The application must connect as bbnator_app, a non-owner role without BYPASSRLS;
+-- otherwise every policy above is silently ignored. Migrations stay with the owner role.
+DO $$
+BEGIN
+  CREATE ROLE bbnator_app NOLOGIN NOSUPERUSER NOBYPASSRLS NOCREATEDB NOCREATEROLE;
+EXCEPTION WHEN duplicate_object THEN
+  NULL;
+END
+$$;
+GRANT USAGE ON SCHEMA public TO bbnator_app;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO bbnator_app;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO bbnator_app;
