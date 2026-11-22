@@ -21,6 +21,7 @@ services:
       context: ./backend
     restart: unless-stopped
     environment:
+      SPRING_PROFILES_ACTIVE: demo
       DB_HOST: postgres
       DB_PORT: "5432"
       DB_NAME: ${POSTGRES_DB:-bbnator}

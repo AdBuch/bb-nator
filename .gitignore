@@ -12,3 +12,6 @@
 .vscode/
 .DS_Store
 *.iml
+
+# Local-only updater credential
+.update-token

@@ -1,68 +1,92 @@
 <div class="shell">
-  <aside class="sidebar" aria-label="Hauptnavigation">
-    <div class="brand">
-      <div class="brand-icon" aria-hidden="true">◆</div>
-      <div><strong>BB-NATOR</strong><small>Berufsbildungsportal</small></div>
-    </div>
-    <div class="nav-label">VORSCHAU · v0.1</div>
-    <nav class="nav">
-      <button type="button" [class.selected]="activeView() === 'mentor'" [attr.aria-current]="activeView() === 'mentor' ? 'page' : null" (click)="selectView('mentor')"><i aria-hidden="true">▦</i> <span>Berufsbildner</span></button>
-      <button type="button" [class.selected]="activeView() === 'learner'" [attr.aria-current]="activeView() === 'learner' ? 'page' : null" (click)="selectView('learner')"><i aria-hidden="true">◇</i> <span>Lernende</span></button>
-    </nav>
-    <div class="sidebar-note">Lernen. Entwickeln.<br>Verantwortung übernehmen.</div>
-  </aside>
-
-  <main class="content">
-    <header class="topbar">
-      <span class="eyebrow">BB-NATOR · FOUNDATION RELEASE</span>
-      <span class="environment">Demo ohne Personendaten</span>
-    </header>
-
-    @if (activeView() === 'mentor') {
-      <section class="headline">
-        <div>
-          <span class="eyebrow">BERUFSBILDNER COCKPIT</span>
-          <h1>Ausbildung entwickeln.</h1>
-          <p>Eine zentrale Plattform für Lernziele, Begleitung und echte Kompetenzentwicklung.</p>
-        </div>
-        <div>
-          <button type="button" class="primary-button" disabled aria-describedby="task-hint">+ Neue Lernaufgabe</button>
-          <small id="task-hint" class="button-hint">Aufgabenverwaltung folgt in Release 0.2.</small>
-        </div>
-      </section>
-
-      <section class="summary-grid" aria-label="Foundation Status">
-        <article class="metric"><div class="metric-icon" aria-hidden="true">◈</div><span>Bildungsplan</span><strong>7 Perspektiven</strong><small>Gemeinsamer Lernpfad</small></article>
-        <article class="metric"><div class="metric-icon" aria-hidden="true">◎</div><span>Integration</span><strong>Jira &amp; GitLab</strong><small>Geplant für v0.4</small></article>
-        <article class="metric"><div class="metric-icon" aria-hidden="true">✓</div><span>Technischer Status</span><strong>v0.1 Foundation</strong><small role="status" aria-live="polite">{{ apiState() }}</small></article>
-      </section>
-
+<aside class="sidebar" aria-label="Hauptnavigation">
+  <div class="brand"><div class="brand-icon" aria-hidden="true">◆</div><div><strong>BB-NATOR</strong><small>Berufsbildungsportal</small></div></div>
+  <div class="nav-label">SYNTHETISCHE DEMO · v0.2a</div>
+  <nav class="nav">
+    <button type="button" [class.selected]="view()==='mentor'" [attr.aria-pressed]="view()==='mentor'" (click)="select('mentor')">▦ <span>Berufsbildner</span></button>
+    <button type="button" [class.selected]="view()==='learner'" [attr.aria-pressed]="view()==='learner'" (click)="select('learner')">◇ <span>Lernende</span></button>
+    <button type="button" [class.selected]="view()==='admin'" [attr.aria-pressed]="view()==='admin'" (click)="select('admin')">⚙ <span>Admin / Updates</span></button>
+  </nav>
+  <div class="sidebar-note">Nur fiktive Namen. Keine echte Anmeldung, keine realen Lernendendaten.</div>
+</aside>
+<main class="content">
+  <header class="topbar"><span class="eyebrow">BB-NATOR · INTERAKTIVER DEMO-MVP</span><span class="environment">Nur lokale Testumgebung</span></header>
+  @if (view()==='mentor') {
+    <section class="headline"><div><span class="eyebrow">BERUFSBILDNER-COCKPIT</span><h1>Lernfortschritt begleiten.</h1><p>Aufgaben zuweisen, Ziele zuordnen und Nachweise prüfen.</p></div></section>
+    <section class="summary-grid" aria-label="Demo-Kennzahlen">
+      <article class="metric"><span>Fiktive Lernende</span><strong>{{ learners().length }}</strong></article>
+      <article class="metric"><span>Lernaufgaben</span><strong>{{ tasks().length }}</strong></article>
+      <article class="metric"><span>Abgeschlossene Aufgaben</span><strong>{{ totalDone() }}</strong></article>
+    </section>
+    @if (demoEnabled()) {
       <div class="panels">
         <section class="panel">
-          <div class="panel-heading"><h2>Ausbildungsperspektiven</h2><span class="soft-label">Zielbild</span></div>
-          <p>Sieben Quellen, ein individueller Entwicklungsplan. Verbindliche BiVo-Ziele bleiben getrennt von Firmen- und persönlichen Zielen.</p>
-          <ol class="perspective-list">
-            @for (perspective of perspectives; track perspective) {
-              <li><span class="list-symbol" aria-hidden="true">{{ $index + 1 }}</span>{{ perspective }}</li>
-            }
-          </ol>
+          <h2>Neue Lernaufgabe</h2>
+          <form class="task-form" (submit)="create($event)">
+            <label for="person">Lernende Person</label>
+            <select id="person" #person (change)="learnerId.set(person.value)">
+              @for (l of learners();track l.id) { <option [value]="l.id" [selected]="learnerId()===l.id">{{ l.name }} · Semester {{ l.semester }}</option> }
+            </select>
+            <label for="task-title">Aufgabe</label>
+            <input id="task-title" #t [value]="title()" (input)="title.set(t.value)" required maxlength="160" placeholder="z. B. JUnit-Tests erweitern">
+            <label for="goal">Lernziel</label>
+            <select id="goal" #g (change)="goal.set(g.value)">
+              @for (v of ['Java & Testing','REST & APIs','Git & Code Review','Docker & DevOps','Security','Eigenständigkeit'];track v) { <option [value]="v">{{ v }}</option> }
+            </select>
+            <button type="submit" class="primary-button">+ Aufgabe zuweisen</button>
+          </form>
         </section>
         <section class="panel">
-          <div class="panel-heading"><h2>Nächste Meilensteine</h2><span class="soft-label">Roadmap</span></div>
-          <div class="milestone"><span class="dot active" aria-hidden="true"></span><div><strong>v0.1 · Foundation (aktuell)</strong><p>API, Oberfläche, Datenbank, CI und Docker.</p></div></div>
-          <div class="milestone"><span class="dot" aria-hidden="true"></span><div><strong>v0.2 · Learning Path</strong><p>Kompetenzmatrix, Lernende und Aufgabenvergabe.</p></div></div>
-          <div class="milestone"><span class="dot" aria-hidden="true"></span><div><strong>v0.3 · Daily Companion</strong><p>Lernjournal, Fokus und Tagesreflexion.</p></div></div>
-          <div class="empty-note">Keine echten Lernenden- oder Leistungsdaten in dieser Demo.</div>
+          <h2>Entwicklung der Lernenden</h2>
+          @for (l of learners(); track l.id) {
+            <div class="milestone"><span class="dot active" aria-hidden="true"></span><div>
+              <strong>{{ l.name }} · Semester {{ l.semester }}</strong><p>{{ count(l.id) }} Aufgaben · {{ done(l.id) }} abgeschlossen</p>
+            </div></div>
+          }
         </section>
       </div>
-    } @else {
-      <section class="headline"><div><span class="eyebrow">LERNENDEN COCKPIT</span><h1>Dein Weg beginnt hier.</h1><p>Deine Ziele, Erfahrungen und Fortschritte an einem Ort.</p></div></section>
-      <div class="panels">
-        <section class="panel"><div class="panel-heading"><h2>Mein Lernpfad</h2><span class="soft-label">ab v0.2</span></div><div class="semester-grid">@for (semester of [1,2,3,4,5,6,7,8]; track semester) { <span>S{{ semester }}</span> }</div><p>Die Semesteransicht und Kompetenznachweise folgen im nächsten Release.</p></section>
-        <section class="panel"><div class="panel-heading"><h2>Heute erreicht</h2><span class="soft-label">ab v0.3</span></div><p>„What did I achieve today?“ Hier entstehen Tagesrückblick, Fokuszeit und Lernjournal.</p><div class="empty-note">Für Version 0.1 werden bewusst keine persönlichen Daten gespeichert.</div></section>
-      </div>
+      <section class="panel task-panel"><h2>Aufgaben & Reviews</h2>
+        @for (task of tasks();track task.id) {
+          <article class="task-line"><div><strong>{{ task.title }}</strong><p>{{ name(task.learnerId) }} · {{ task.learningGoal }}</p><small>{{ task.status }} · Evidenz: {{ task.evidence }}</small></div>
+            <div class="task-actions">
+              <button type="button" (click)="progress(task,'IN_PROGRESS','MISSING')">Starten</button>
+              <button type="button" (click)="progress(task,'IN_REVIEW','SUBMITTED')">Review</button>
+              <button type="button" (click)="progress(task,'DONE','VERIFIED')">Prüfen ✓</button>
+            </div>
+          </article>
+        } @empty { <p>Noch keine Aufgaben.</p> }
+      </section>
     }
-
-    <footer>BB-NATOR · Open Source · MIT · Keine echte Authentifizierung oder personenbezogene Datenspeicherung in v0.1</footer>
-  </main>
-</div>
+    <p role="status" aria-live="polite">{{ notice() }}</p>
+  } @else if (view()==='learner') {
+    <section class="headline"><div><h1>Meine Lernaufgaben.</h1><p>Ansicht einer fiktiven lernenden Person.</p></div></section>
+    <section class="panel">
+      <label for="learner">Demo-Profil</label>
+      <select id="learner" #selectLearner (change)="learnerId.set(selectLearner.value)">
+        @for (l of learners();track l.id) { <option [value]="l.id" [selected]="learnerId()===l.id">{{ l.name }}</option> }
+      </select>
+      @for (task of mine();track task.id) {
+        <article class="task-line"><div><strong>{{ task.title }}</strong><p>{{ task.learningGoal }} · {{ task.status }}</p></div>
+          @if (task.status!=='DONE') { <button type="button" (click)="progress(task,'IN_REVIEW','SUBMITTED')">Zur Prüfung einreichen</button> }
+        </article>
+      } @empty { <p>Keine Lernaufgaben.</p> }
+    </section>
+  } @else {
+    <section class="headline"><div><h1>Admin · Updates</h1><p>Git-Updates prüfen und lokale Docker-Installation neu starten.</p></div></section>
+    <section class="panel">
+      <h2>Lokaler Update-Dienst</h2>
+      <p>Starte den Dienst über <code>scripts/start.sh</code> bzw. <code>scripts/start.ps1</code>. Das Token steht lokal in <code>.update-token</code> und wird hier nicht gespeichert.</p>
+      <div class="task-form"><label for="update-token">Admin-Token</label>
+        <input id="update-token" #secret type="password" autocomplete="off" [value]="updateToken()" (input)="updateToken.set(secret.value)">
+        <div class="task-actions">
+          <button type="button" [disabled]="!updateToken()||updateBusy()" (click)="check()">Updates prüfen</button>
+          <button type="button" class="primary-button" [disabled]="!updateToken()||updateBusy()||!updateState()?.updateAvailable" (click)="apply()">Neue Version installieren</button>
+        </div>
+        @if(updateState();as info) { <p>Installiert: {{ info.current }} · Git: {{ info.latest }}</p> }
+        <p role="status" aria-live="polite">{{ updateNotice() }}</p>
+      </div>
+      <div class="empty-note">Der Update-Dienst ist nur an 127.0.0.1 erreichbar. Keine Docker-Socket-Mounts in Containern. Nicht für Remote-Administration geeignet.</div>
+    </section>
+  }
+  <footer>BB-NATOR · MIT · Nur fiktive Demo-Daten · Keine Authentifizierung im Demo-Modus</footer>
+</main></div>
