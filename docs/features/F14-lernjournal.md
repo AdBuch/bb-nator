@@ -33,3 +33,11 @@ Klasse C, standardmässig privat.
 ## Quellen
 - PRODUCT_VISION.md
 - PRIVACY.md
+
+## Präzisierung: Lernjournal und wiederverwendbare Lerndokumentation (2026-11-23)
+
+- Tages- und Wochenreflexion, optional verknüpft mit Aufgabe, Ziel, MR/Demo und selbst gewählter Kategorie.
+- Promptvorlagen: 'Was habe ich umgesetzt?', 'Wie habe ich getestet?', 'Was verstehe ich jetzt besser?', 'Wobei brauche ich Hilfe?', 'Was kommt als Nächstes?'.
+- Private Entwürfe können **explizit** mit einem zugewiesenen Mentor geteilt werden. Teilen ist widerrufbar für künftigen Zugriff und vollständig protokolliert, ohne Eintragstext in Logs.
+- Semesterbericht verwendet **nur berechtigt geteilte oder formal erhobene Inhalte** als Vorschlag; kein ungefragtes KI-Lesen privater Texte.
+- **Akzeptanz:** Im Mentorprofil taucht ein privater Entwurf niemals auf; Widerruf entfernt ihn aus künftigen Ansichten; eine spätere freigegebene Dokumentation kann Quelldaten zurückverfolgen.

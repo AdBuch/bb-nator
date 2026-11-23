@@ -40,3 +40,12 @@ Die Reihenfolge und Releases stehen in der [Roadmap](../ROADMAP.md). Grundlagen:
 | [F26](F26-entwicklungs-dashboard.md) | Entwicklungs-Dashboard und Berichte | v1.0 | Idee |
 | [F27](F27-demo-updater.md) | Demo-Modus und lokaler Updater | v0.2a | Umgesetzt (PR #6) |
 | [F28](F28-betrieb.md) | Betrieb, Backup und Deployment | v1.0 | Idee |
+| [F29](F29-aufgabenbibliothek-lernprojekte.md) | Aufgabenbibliothek / Lernprojekte für alle Semester | v0.3–v0.7 | Idee / Diskussion |
+| [F30](F30-ausbildungskalender-kapazitaet.md) | Lernkalender und Kapazitätsplanung | v0.4 (Kandidat) | Idee / Diskussion |
+| [F31](F31-agenten-labor.md) | AI-Agenten- und MCP-Lernlabor | v0.5–v0.7 (Kandidat) | Idee / Diskussion |
+
+## Produktabgleich vom 2026-11-23
+- [Zentraler Backlog aller gesammelten Wünsche, Ziele und Feature-Zuordnungen](../roadmap/PRODUCT_BACKLOG.md)
+- [PR-/Branch-Prüfung und offene technische Risiken](../roadmap/BRANCH_AUDIT_2026-11-23.md)
+- Neue F29–F31 sind **Vorschläge**, keine stillschweigend genehmigten Release-Zusagen.
+- Bei Statusabweichungen zwischen Roadmap und PR gilt der **aktuelle gemergte Repository-Stand**; bei offenen PRs ist die Umsetzung noch nicht Release-freigegeben.

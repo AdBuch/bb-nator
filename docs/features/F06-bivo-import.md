@@ -37,3 +37,11 @@ Keine Personendaten.
 ## Quellen
 - ADR-0002 §4
 - PRODUCT_VISION.md
+
+## Präzisierung: Vollständigkeit und Nachvollziehbarkeit (2026-11-23)
+
+- Ein Importpaket muss die **offizielle Herkunft**, Herausgeber, Dokumenttitel, Publikationsstand, Dateiprüfsumme, Abrufdatum, Geltungsbereich (Betrieb/Schule/üK) und erkennbare Ziel-IDs enthalten. PDF- oder Tabellenexport nur mit überprüfbarer Struktur, sonst manuelle Freigabe.
+- Unterscheide Handlungskompetenzbereich, Handlungskompetenz, Leistungsziel und Lernort. Keine Vermengung von betrieblichem Nachweis mit schulischer Modulabsolvierung.
+- Prüfe Importer anhand einer kleinen nachvollziehbaren Stichprobe aus der offiziell freigegebenen Quelle und zeige fehlende/mehrdeutige Ziele im Fehlerreport.
+- Ein Zielkatalog ist versioniert und read-only; frühere Zuweisungen behalten ihren ursprünglichen Zielstand. Überleitungen zwischen Versionen sind eigene überprüfte Zuordnungen.
+- **Offen:** Quellen und Textweitergaberechte juristisch/organisatorisch klären, bevor offizielle Volltexte im öffentlichen Repo erscheinen. Vorher nur synthetische Testdaten.

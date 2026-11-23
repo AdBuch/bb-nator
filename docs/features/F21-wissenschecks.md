@@ -33,3 +33,10 @@ Klasse B.
 ## Quellen
 - RELEASES.md v0.6
 - BB_COCKPIT.md §7
+
+## Präzisierung: kurze überprüfbare Knowledge Checks (2026-11-23)
+
+- Fragenbank mit Thema, Zielbeziehung, Version, Schwierigkeit, erklärter Musterlösung, Autor/Review und Freigabe. Unterstütze Multiple-Choice, Fehlersuche, konzeptionelle Fragen und kleine Praxisübungen.
+- Mentor kann Checks aus einem Task ableiten; Lernende bekommen verständliches Feedback und einen nächsten Lernhinweis. Versuche bleiben historisiert, Fragen können zeitlich überarbeitet werden.
+- Testinhalte beispielhaft: Java/OOP, HTTP/JSON, Maven/JUnit, Git, Security, Architektur, Debugging, Code Review, AI-Output-Validierung, MCP.
+- **Akzeptanz:** Ein bestandener Wissenscheck ist Evidenzkandidat, nicht automatische Kompetenzbewertung; Fragen/Antworten werden vor unberechtigtem Einblick geschützt.

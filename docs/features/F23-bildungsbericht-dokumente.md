@@ -33,3 +33,10 @@ Klasse D, Zugriff protokolliert.
 ## Quellen
 - RELEASES.md v0.6
 - PRIVACY.md
+
+## Präzisierung: Ausbildungsdokumentation und Zeugnisse (2026-11-23)
+
+- Bildungsberichte, Lehrzeugnisse, Lernnachweise, Zertifikate und Schul-/üK-Unterlagen sind **unterschiedliche Dokumenttypen** mit Herkunft, Version, Autor, Freigabestand, Zugriffsrecht, Aufbewahrungsregel.
+- Berichtsgenerator ordnet Ziele, geprüfte Evidenz, Mentor-/Lernendenfeedback und vereinbarte Folgeschritte zu. Er produziert nur einen **bearbeitbaren Entwurf**; formale Prüfung und Freigabe bleiben Menschen.
+- Die offiziellen Berichtsvorlagen und zulässige Weitergabe sind gesondert zu prüfen. Keine erfundenen amtlichen Beurteilungsfelder und keine automatische Abgabe.
+- **Akzeptanz:** Klasse-D-Dateien werden verschlüsselt gespeichert, jeder Zugriff geloggt, Zugriffstests für fremde Mentoren/andere Mandanten negativ; Export berücksichtigt Freigaben und Datenschutz.

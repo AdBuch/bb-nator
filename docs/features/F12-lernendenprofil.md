@@ -32,3 +32,12 @@ Strikt nach Sichtbarkeit aus F03.
 
 ## Quellen
 - BB_COCKPIT.md §3B
+
+## Präzisierung: Entwicklungsansicht eines Lernenden (2026-11-23)
+
+Das Profil umfasst semesterbezogene Meilensteine, Zielmatrix aus sieben Perspektiven, aktuelle/abgeschlossene Aufgaben, Reviews, Schul-/üK-Kontext (nur freigegeben), fachliche Kompetenzen und historische Mentor-Einschätzungen. Schnellaktionen: **neue Aufgabe**, **Review**, **Feedback**, **Check-in**.
+
+- Eine Graphik ohne Evidenz wird nicht als Fortschrittsbeweis gezeigt; jede Kennzahl erklärt Quelle, Nenner, Zeitraum und Verantwortliche.
+- **Keine** privaten Journalentwürfe, freiwilligen Fokusdaten oder sensiblen Schul-/Dokumentdaten ohne jeweilige Freigabe und Berechtigungen.
+- Lernende sehen transparent, was über sie gespeichert ist; Datenänderung/Verbesserungsvorschläge werden nachvollziehbar erfasst.
+- **Akzeptanz:** Unzugeordneter Mentor erhält keinen Zugriff; jeder Zugriff auf Klasse D wird protokolliert; fehlende externe Werte heissen 'nicht gemeldet'.

@@ -34,3 +34,9 @@ Bei Minderjährigen ist zu klären, ob Erziehungsberechtigte informiert werden.
 
 ## Quellen
 - PRIVACY.md §3
+
+## Präzisierung: getrennte freiwillige Zwecke (2026-11-23)
+
+Einwilligung separat für Lernjournal-/Mood-Optionen, Fokuszeit, Spiel/XP und AI-Verarbeitung. Die Lernenden sollen frei entscheiden und die eigene aktuelle Einstellung samt dokumentiertem Zwecktext sehen; Ausschalten darf **keine** Benachteiligung in Ausbildung oder Beurteilung erzeugen.
+
+**Akzeptanz:** Widerruf stoppt neue Verarbeitung unmittelbar; bestehende Daten werden entsprechend nachweisbarer Richtlinie gelöscht. Zustimmung ist nicht automatisch durch Anmelden, Aufgabenabgabe oder Lehrvertrag gegeben. Bei Minderjährigen organisatorische/gesetzliche Anforderungen vor Aktivierung klären, nicht im Code vermuten.

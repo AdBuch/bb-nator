@@ -33,3 +33,15 @@ Bewertungen: Mentor ist Autor, Lernende/r ist betroffene Person mit vollem Leser
 
 ## Quellen
 - BB_COCKPIT.md §4
+
+## Präzisierung: von Tätigkeit zu Kompetenz (2026-11-23)
+
+Ein Ticketstatus, bestandene Pipeline, Fokuszeit oder Quizpunktzahl ist **noch kein** Kompetenznachweis. Zwischen Ziel, Aufgabe, eingereichtem Artefakt, mentor-geprüftem Nachweis und einer pädagogischen Bewertung bestehen getrennte Zustände.
+
+**Interne Entwicklungsrubrik 0–4 (Vorschlag, vor Einsatz formell zu beschliessen):**
+0 = noch keine beobachtbaren Nachweise; 1 = unter enger Anleitung; 2 = mit gezielter Unterstützung; 3 = weitgehend selbständig und kann Entscheidungen erklären; 4 = selbständig, sicher und kann Qualität/Alternativen kritisch beurteilen. Diese Skala ist **keine offizielle QV-Note**.
+
+- Jede Einschätzung enthält Ziel, beobachtete Aufgabe, Artefakt/Demo, Bewerter, Datum, Begründung, eventuell nächstes Förderziel; Lernende können begründet widersprechen oder eine Ergänzung einreichen.
+- Automatische Fremdsystemverweise kommen zunächst als **potenzielle** Evidenz, nicht als Abschlussentscheidung.
+- Statistiken zeigen immer **verifizierte Ziele / anwendbare Pflichtziele**, separat geplante und geübte Ziele; nicht ein undurchsichtiger Gesamtscore.
+- **Akzeptanz:** Ein Jira-Ticket wechselt auf Done, der Lernzielstatus bleibt 'nicht verifiziert', bis berechtigter Mentor bewusst prüft. Berechtigungsgrenzen und Verifizierung ohne Begründung werden negativ getestet.

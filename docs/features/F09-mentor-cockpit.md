@@ -36,3 +36,13 @@ Nur zugeordnete Lernende sichtbar.
 ## Quellen
 - BB_COCKPIT.md §3A
 - UX_WIREFRAMES.md
+
+## Präzisierung: operativer Berufsbildner-Arbeitsplatz (2026-11-23)
+
+Die Startseite ist **aktionsorientiert**. Oben: Kohorte/Lehrjahr/Semester, Suche, sofortiger Button **Neue Aufgabe**. Dazu sechs getrennte Panels: (1) Lernendenkarten mit aktuellem Fokus, (2) fällige Reviews und Hilfegesuche, (3) BiVo-Abdeckung **geplant / geübt / belegt / verifiziert**, (4) Aufgabenboard, (5) Check-ins/üK/Schule/Meilensteine, (6) Datenqualität/Sync-Status.
+
+- In einer **Aufmerksamkeitsliste** steht immer ein konkreter Grund und eine nächste menschliche Aktion. Nicht aus XP, Commit-Zahlen oder Zeit automatisch eine negative Prognose ableiten.
+- Aktion an jedem Lernenden: Profil, gezielte Aufgabe zuweisen, Feedback, Gespräch planen. Jede aggregierte Zahl ist anklickbar und führt zu den zugrundeliegenden Nachweisen.
+- Ziele ohne Nachweis oder ohne geplante Aufgabe sind getrennt sichtbar; externe Systeme zeigen letzten Sync-Zeitpunkt und Verbindungsfehler.
+- Bei fehlenden externen Verbindungen zeigt die UI 'nicht verfügbar' statt null oder 0 %.
+- **Akzeptanz:** Mentor entdeckt einen überfälligen Review in unter 30 s und kann eine Lernaufgabe aus einer dokumentierten Kompetenzlücke in höchstens drei UI-Aktionen vorbereiten.

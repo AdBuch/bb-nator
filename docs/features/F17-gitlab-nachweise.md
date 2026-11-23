@@ -31,3 +31,10 @@ Keine Quellcode-Inhalte in der Datenbank.
 
 ## Quellen
 - INTEGRATION_AND_REUSE_PLAN.md
+
+## Präzisierung: GitLab als potenzielle Evidenz (2026-11-23)
+
+- Direkter Spring-Adapter mit erlaubten Gruppen/Projekten, Leserechten und personenbezogener Zuordnung über explizite externe Benutzer-ID.
+- Metadaten: Projekt-ID, MR/Commit-Verweis, Autor/Reviewer, Pipeline-/Reviewstatus, URL, Zeitpunkt und Datenfrische. Keine Diff-/Quellcode-Inhalte oder Credentials standardmässig importieren.
+- Merge Request und bestandene Pipeline zeigen technische Aktivität, **nicht automatische fachliche Kompetenz**. Mentor kann Evidenz mit Ziel/Task verbinden und unter F11 prüfen.
+- **Akzeptanz:** 401/403/429, unbekannter Autor, Rate Limit, Pagination und veralteter Cache führen zu transparentem Fehlerstatus. Keine fremden oder nicht freigegebenen Projektresultate.

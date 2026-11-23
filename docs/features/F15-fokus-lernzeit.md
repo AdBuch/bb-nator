@@ -35,3 +35,12 @@ Klasse C; nie für Personalbeurteilung.
 ## Quellen
 - PRODUCT_VISION.md
 - BB_COCKPIT.md §4
+
+## Präzisierung: Konzentration schrittweise üben (2026-11-23)
+
+Früher genannte Idee: von **sehr kurzen Einheiten (z. B. 15 Sekunden)** schrittweise und individuell zu **etwa 30 Minuten** gelangen. Diese Werte sind Optionen, **kein alters- oder neurotypabhängiger Standard und kein Leistungsziel**.
+
+- Lernende wählen Intervalle selbst, können jederzeit stoppen und eigene Fortschritte sehen; keine Pflicht-Timer oder öffentliche Vergleiche.
+- Keine automatische Zusammenführung mit BCS-Anwesenheit, Jira-Aufwand oder Lernzielverifizierung. Drei Datentypen bleiben getrennt: Arbeitszeit, Lernzeit, Fokusdauer.
+- Erfasst nur nach zweckbezogener Einwilligung; Ablehnung bleibt Mentoren verborgen, Widerruf stoppt Erfassung und löst festgelegte Löschung aus.
+- **Akzeptanz:** Eine Fokus-Einheit verändert niemals Kompetenzstufe, Lohndaten oder Arbeitszeitsaldo; Berechtigungs- und Widerrufstests.

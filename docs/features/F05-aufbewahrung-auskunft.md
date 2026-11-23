@@ -36,3 +36,11 @@ Formale Berichte behalten die Frist, die der Betrieb festlegt.
 
 ## Quellen
 - PRIVACY.md §4, §5
+
+## Präzisierung: Datenlebenszyklus (2026-11-23)
+
+Datenarchitektur benötigt ab erster personenbezogener Tabelle: Schutzklasse, Zweck, verantwortlichen Mandanten, Aufbewahrungsstatus und nachvollziehbare Erstellungs-/Änderungszeit. Exporte/Änderungen und Löschläufe folgen später nach dokumentierter Fristenentscheidung.
+
+- Selbstservice: 'Was ist gespeichert?', Datenherkunft, Zugriffsprotokoll, korrigierbare Fakten, Export im üblichen maschinenlesbaren Format.
+- Dokumentierte Aufbewahrungsfristen für Klasse B/C/D und vorhandene Backups; ein Widerruf der freiwilligen Einwilligung hat eine eigene Löschlogik.
+- **Akzeptanz:** Entwurf eines Bildungsberichts wird nicht als rechtskräftiges Zeugnis ausgegeben. Export zeigt keine Daten anderer Lernender oder Mandanten. Fristen werden vor echtem Pilot verbindlich entschieden.
