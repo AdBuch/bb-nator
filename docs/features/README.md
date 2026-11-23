@@ -49,3 +49,7 @@ Die Reihenfolge und Releases stehen in der [Roadmap](../ROADMAP.md). Grundlagen:
 - [PR-/Branch-Prüfung und offene technische Risiken](../roadmap/BRANCH_AUDIT_2026-11-23.md)
 - Neue F29–F31 sind **Vorschläge**, keine stillschweigend genehmigten Release-Zusagen.
 - Bei Statusabweichungen zwischen Roadmap und PR gilt der **aktuelle gemergte Repository-Stand**; bei offenen PRs ist die Umsetzung noch nicht Release-freigegeben.
+
+## Fachlicher v0.2-Freigabevorschlag
+
+Siehe [fünf konkrete MVP-Entscheidungsvorlagen](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md) für F01, F06, F10/F29, F11 und den End-to-End-Workflow. Die bestehenden Feature-Status werden durch einen Spezifikationsvorschlag **nicht** auf «beschlossen» oder «umgesetzt» geändert.

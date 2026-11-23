@@ -42,3 +42,7 @@ Erste 5–10 Vorlagen, interne vs. öffentlich geteilte Bibliothek, Versionierun
 
 ## Quellen
 Frühere Lehrlingsbetreuung-Ideen (Canvas/Maven/JUnit/API/Go/MCP) und `PRODUCT_VISION.md`, `BB_COCKPIT.md`.
+
+## Vorschlag: fünf MVP-Startvorlagen (2026-11-23)
+
+In der [v0.2 MVP-Freigabevorlage §4](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md#4-f29f10--fünf-konkrete-startvorlagen) sind als **noch freizugebende** erste Aufgaben vorgesehen: **T01 Java Canvas/Figuren**, **T02 Maven-Umstieg**, **T03 JUnit-Tests**, **T04 Git & Code Review**, **T05 REST/JSON-API-Client**. Jede Vorlage erhält Ziel, Voraussetzungen, Lieferobjekte, aussagekräftige Abnahmekriterien, Test-/Reflexionshinweise und eine Version. Keine offiziellen BiVo-IDs ohne freigegebenen Katalog; keine Firmeninterna. Die umfangreichere Bibliothek bleibt unabhängig davon ab v0.3 geplant.

@@ -47,3 +47,9 @@ Login-Name und Anzeigename sind Klasse A. Fehlgeschlagene Logins werden ohne Pas
 - ADR-0002
 - PRIVACY.md
 - BB_COCKPIT.md §6
+
+## Vorschlag zur fachlichen MVP-Freigabe (2026-11-23)
+
+Die Anmeldung über LDAP und lokal verwaltete Rollen bleibt als Architekturentscheidung in ADR-0002 verankert. **Noch nicht genehmigt** sind die konkrete LDAP-Schlüsselwahl, Admin-Bootstrap, Rechte-Matrix, Rate-Limiting, Mandantenermittlung und Betreiberkonfiguration.
+
+Die vorgeschlagenen UI-/API-Abläufe, Session-/CSRF-Sicherheitsfälle und Testgates stehen in [v0.2 MVP-Freigabevorlage §1](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md#1-f01--ldap-anmeldung-und-lokale-administration). Status dieses Abschnitts: **Freigabevorschlag**, keine Festlegung betrieblicher Identitäten oder Berechtigungen.

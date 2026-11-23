@@ -59,3 +59,7 @@ BB-NATOR is an **actionable educational cockpit for mentors and apprentices**: i
 8. Production updater rollback, signed release provenance and protected secret handling.
 
 See [feature index](../features/README.md), [roadmap](../ROADMAP.md), [branch audit](BRANCH_AUDIT_2026-11-23.md).
+
+## Präzisierung: fünf Vorschläge für die v0.2-Fachfreigabe
+
+[RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md) beschreibt Abläufe, Daten, Negativtests und noch zu genehmigende Entscheidungen für F01, F06, F11, F29/F10 und die v0.2-MVP-Grenze. Die **T01–T05**-Vorlagen werden als möglicher kleiner MVP-Inhalt vorgeschlagen, nicht als freigegebene Produktanforderung. Die Quellen-, Datenschutz-, Betriebs- und Berechtigungsentscheidungen bleiben ausdrücklich **offen**.
