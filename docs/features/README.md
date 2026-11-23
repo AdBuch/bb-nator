@@ -40,7 +40,6 @@ Die Reihenfolge und Releases stehen in der [Roadmap](../ROADMAP.md). Grundlagen:
 | [F26](F26-entwicklungs-dashboard.md) | Entwicklungs-Dashboard und Berichte | v1.0 | Idee |
 | [F27](F27-demo-updater.md) | Demo-Modus und lokaler Updater | v0.2a | Umgesetzt (PR #6) |
 | [F28](F28-betrieb.md) | Betrieb, Backup und Deployment | v1.0 | Idee |
-
 | [F29](F29-aufgabenbibliothek-lernprojekte.md) | Aufgabenbibliothek / Lernprojekte für alle Semester | v0.3–v0.7 | Idee / Diskussion |
 | [F30](F30-ausbildungskalender-kapazitaet.md) | Lernkalender und Kapazitätsplanung | v0.4 (Kandidat) | Idee / Diskussion |
 | [F31](F31-agenten-labor.md) | AI-Agenten- und MCP-Lernlabor | v0.5–v0.7 (Kandidat) | Idee / Diskussion |

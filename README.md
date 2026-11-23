@@ -2,7 +2,7 @@
 
 **BB-NATOR** is an open-source, AI-assisted vocational training companion for Swiss software-development apprentices and their mentors.
 
-> Status: **planning / foundation**. The features below are targets, not yet implemented.
+> Status: **v0.1 Foundation auf main; v0.2 auf dem Release-Branch in Entwicklung.** Eine synthetische Demo ist vorhanden; ein sicherer Pilot mit echten Lernenden ist noch nicht freigegeben.
 
 ## Product specification
 - [Complete product vision and seven planning perspectives](docs/requirements/PRODUCT_VISION.md)
@@ -12,6 +12,8 @@
 - [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
 - [Data protection mechanism](docs/requirements/PRIVACY.md)
 - [Roadmap](docs/ROADMAP.md) and [feature documents](docs/features/README.md)
+- [Consolidated goals, wishes and feature backlog](docs/roadmap/PRODUCT_BACKLOG.md)
+- [GitHub PR and branch audit, 2026-11-23](docs/roadmap/BRANCH_AUDIT_2026-11-23.md)
 
 ## Mission
 Help apprentices become independent, responsible software engineers while supporting the Swiss **Informatiker/in EFZ, Applikationsentwicklung (BiVo 2021)** learning objectives. The portal connects educational goals, practical evidence, mentoring, reflection, focus habits and preparation for the qualification procedure (QV/IPA).
@@ -27,7 +29,7 @@ Help apprentices become independent, responsible software engineers while suppor
 
 ## Interactive Demo v0.2a (development PR)
 
-An **interactive synthetic-only demo** is developed in [PR #6](https://github.com/AdBuch/bb-nator/pull/6). Its mentor and learner views allow creating and reviewing learning tasks with persistent PostgreSQL demo records.
+An **interactive synthetic-only demo** was merged to the active v0.2 release branch in [PR #6](https://github.com/AdBuch/bb-nator/pull/6). Its mentor and learner views allow creating and reviewing learning tasks with persistent PostgreSQL demo records.
 
 - [Demo scope, acceptance criteria and local preview](docs/requirements/RELEASE_0_2A.md)
 - [Git auto-update starter and local admin update button](docs/process/UPDATES.md)
@@ -36,7 +38,7 @@ Once merged to main, use `bash scripts/start.sh` (Linux/WSL) or `.\\scripts\\sta
 
 ## v0.1 Foundation Quick Start
 
-On the `release/0.1-foundation` branch, BB-NATOR contains a **runnable foundation scaffold (pending CI verification)**: Spring Boot API, Angular preview UI, PostgreSQL/Flyway, Docker Compose and CI. Authentication and real learner data are NOT implemented yet.
+On the `release/0.1-foundation` branch, BB-NATOR contains a **CI-verified foundation scaffold**: Spring Boot API, Angular preview UI, PostgreSQL/Flyway, Docker Compose and CI. Authentication and real learner data are NOT implemented yet.
 
 ```bash
 git checkout release/0.1-foundation

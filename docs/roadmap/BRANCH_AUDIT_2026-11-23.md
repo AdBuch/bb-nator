@@ -4,9 +4,11 @@ Snapshot of `AdBuch/bb-nator`, verified against GitHub on this date. **No branch
 
 ## Pull requests
 
+**Latest verified status in this report:** PR #10 is now merged; the items below record its initial state and the time-ordered changes. New documentation PR #11 is open.
+
 - **Merged:** #1, #2, #3, #4, #6, #7, #8, #9.
 - **Closed without merge:** #5, temporary CI lockfile-generation PR. Its branch is still present.
-- **OPEN:** [#10](https://github.com/AdBuch/bb-nator/pull/10): LDAP login, local accounts and roles, unprivileged runtime DB role and effective RLS, demo-start guard. CI claims 41 backend tests and smoke, **but independent review is still required**.
+- **Initially open, subsequently merged to release/0.2:** [#10](https://github.com/AdBuch/bb-nator/pull/10): LDAP login, local accounts and roles, unprivileged runtime DB role and effective RLS, demo-start guard. CI claims 41 backend tests and smoke, **but independent review is still required**.
 - PR #10 deliberately excludes: Angular sign-in, user/role admin UI, login throttling, access logs. Its `APP_DB_PASSWORD` configuration requires checking migration paths for existing installations.
 
 ## Branches (present on remote)
@@ -37,7 +39,7 @@ Numbers mean *commits ahead/behind*, not unique product features or missing chan
 5. The v0.2a updater works only on localhost, clean `main`, and must not be represented as secure remote admin deployment.
 
 ## Branch cleanup policy (proposal only)
-Once PR #10 is independently reviewed and merged, delete merged feature branches if desired, retain versioned release branches and use GitHub branch protection. This audit deliberately performs **no deletion**.
+After independent review of merged PR #10 and completion of its follow-ups, delete merged feature branches if desired, retain versioned release branches and use GitHub branch protection. This audit deliberately performs **no deletion**.
 
 ## Nachtrag am 2026-11-23: PR #10 inzwischen gemergt
 

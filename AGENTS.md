@@ -22,6 +22,8 @@ Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test 
 - [Identity, tenancy and data protection decisions](docs/architecture/ADR-0002-identity-tenancy-data-protection.md)
 - [Data protection mechanism](docs/requirements/PRIVACY.md)
 - [Roadmap](docs/ROADMAP.md) and [feature documents](docs/features/README.md): update the feature's status and decisions when implementing it
+- [Consolidated user requirements and delivery dependencies](docs/roadmap/PRODUCT_BACKLOG.md)
+- [Current PR/branch audit and unresolved review risks](docs/roadmap/BRANCH_AUDIT_2026-11-23.md)
 
 ## Architecture
 - Monorepo; modular monolith.
