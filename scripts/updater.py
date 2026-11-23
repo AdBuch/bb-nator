@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import secrets
+import importlib.util as _importlib_util
 import subprocess
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -32,6 +33,18 @@ def run(*args: str, timeout: int = 300) -> str:
     if result.returncode:
         raise RuntimeError("Local update command failed: " + args[0])
     return result.stdout.strip()
+
+
+def _load_ensure_env():
+    spec = _importlib_util.spec_from_file_location("ensure_env", Path(__file__).with_name("ensure_env.py"))
+    module = _importlib_util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def ensure_app_db_password(env_path: Path) -> bool:
+    """Newer versions need APP_DB_PASSWORD; add it so an update does not stop the installation."""
+    return _load_ensure_env().ensure_app_db_password(env_path)
 
 
 def allowed_origins() -> set[str]:
@@ -131,6 +144,7 @@ class Handler(BaseHTTPRequestHandler):
             result = check_update()
             if result["updateAvailable"]:
                 run("git", "merge", "--ff-only", "origin/main", timeout=60)
+                ensure_app_db_password(ROOT / ".env")
                 run("docker", "compose", "up", "--build", "-d", timeout=900)
             after = check_update()
             after["message"] = "Installation abgeschlossen; Oberfläche neu laden."

@@ -11,7 +11,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Profile("demo")
 public class DemoSecurityConfiguration {
     @Bean
-    SecurityFilterChain demoSecurityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain demoSecurityFilterChain(HttpSecurity http, org.springframework.core.env.Environment environment) throws Exception {
+        DemoSafetyGuard.check(environment);
         return http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

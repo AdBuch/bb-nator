@@ -58,11 +58,19 @@ jobs:
         run: |
           cp .env.example .env
           sed -i 's/replace-with-a-strong-random-password/ci-only-not-a-real-secret-1234/' .env
+          sed -i 's/replace-with-a-different-random-password/ci-only-app-role-secret-5678/' .env
           docker compose config --quiet
       - name: Build and start containers
         run: docker compose up --build -d
       - name: Smoke test
         run: EXPECT_DEMO=1 bash scripts/smoke.sh
+      - name: Backend uses the RLS-bound database role
+        run: |
+          sessions="$(docker compose exec -T postgres psql -U bbnator -d bbnator -tAc "SELECT count(*) FROM pg_stat_activity WHERE usename = 'bbnator_app'")"
+          bypass="$(docker compose exec -T postgres psql -U bbnator -d bbnator -tAc "SELECT rolsuper OR rolbypassrls FROM pg_roles WHERE rolname = 'bbnator_app'")"
+          echo "bbnator_app sessions=${sessions} superuser_or_bypass=${bypass}"
+          test "${sessions}" -gt 0
+          test "${bypass}" = "f"
       - name: Dump logs on failure
         if: failure()
         run: docker compose logs --no-color

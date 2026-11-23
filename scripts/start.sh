@@ -26,6 +26,7 @@ if git fetch --prune origin main; then
 else
   echo 'Git fetch failed (possibly offline). Starting locally installed version.' >&2
 fi
+python3 scripts/ensure_env.py
 docker compose up --build -d
 bash scripts/smoke.sh
 echo 'Open http://127.0.0.1:8088 · Admin token is in .update-token'

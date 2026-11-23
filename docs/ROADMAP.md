@@ -9,7 +9,8 @@
 | v0.1 Foundation | abgeschlossen, in `main` |
 | v0.2a Demo ([F27](features/F27-demo-updater.md)) | in `release/0.2-learning-path` (PR #6) |
 | Mandanten-Schema und RLS ([F02](features/F02-mandantenfaehigkeit.md)) | Grundlage in `release/0.2-learning-path` (PR #8) |
-| Identität und Login ([F01](features/F01-identitaet-anmeldung.md)) | in Arbeit |
+| Identität und Login ([F01](features/F01-identitaet-anmeldung.md)) | API umgesetzt (PR #10); Anmeldemaske und Benutzerverwaltung offen |
+| Laufzeitrolle `bbnator_app` | Mandantentrennung wirkt im laufenden Stack (PR #10) |
 
 ## Releases
 
