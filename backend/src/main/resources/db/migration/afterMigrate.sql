@@ -7,10 +7,14 @@ REVOKE ALL ON flyway_schema_history FROM bbnator_app;
 
 -- Enable login only when a password is supplied (APP_DB_PASSWORD). Without it the role stays NOLOGIN.
 -- Note: with log_statement=all PostgreSQL would log this block; the image default is 'none'.
+-- The leading 'x' keeps the placeholder from directly following '$': Flyway reads '$${...}' as an escaped,
+-- literal placeholder. substr(..., 2) removes it again.
 DO $callback$
+DECLARE
+  app_password text := substr($pw$x${appdbpassword}$pw$, 2);
 BEGIN
-  IF length($pw$${appdbpassword}$pw$) > 0 THEN
-    EXECUTE format('ALTER ROLE bbnator_app WITH LOGIN PASSWORD %L', $pw$${appdbpassword}$pw$);
+  IF length(app_password) > 0 THEN
+    EXECUTE format('ALTER ROLE bbnator_app WITH LOGIN PASSWORD %L', app_password);
   END IF;
 END
 $callback$;
