@@ -47,3 +47,7 @@ Pflichtdaten beim Zuweisen: **warum** die Aufgabe existiert, Lernziel(e) mit Que
 **Akzeptanzfälle:** Entwurf ohne Ziel darf gespeichert, aber nicht freigegeben werden; Kohorten-Zuweisung hat persönliche Task-IDs; Lernende sehen nur eigene Zuweisung; doppelte Veröffentlichung erzeugt keinen zweiten Jira-Vorgang (F16); Fehlberechtigungen und Validierungsfehler werden getestet.
 
 **Konkrete Startvorlagen:** Java/Canvas, Maven/JUnit, Git, REST/API/JSON, Go-Experimente, Integrationstests, Angular, Docker/CI, Security, AI-/MCP-PoC, IPA, jeweils ohne interne Firmendaten.
+
+## Vorgeschlagener v0.2-MVP-Schnitt (2026-11-23)
+
+Der [MVP-Kernworkflow](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md#5-mvp-abgrenzung-und-reihenfolge-v02) umfasst Aufgabe als Entwurf speichern, versioniertes Lernziel zuordnen, einer berechtigten Person zuweisen, persönliche Evidenz einreichen und einen **separaten** begründeten Mentorentscheid dokumentieren. Die fünf **vorgeschlagenen** T01–T05-Vorlagen liegen fachlich bei F29, nicht als zweites Aufgabenmodell bei F10. Der finale Abnahmeumfang bleibt zur Freigabe offen.

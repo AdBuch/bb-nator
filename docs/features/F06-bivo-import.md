@@ -45,3 +45,7 @@ Keine Personendaten.
 - Prüfe Importer anhand einer kleinen nachvollziehbaren Stichprobe aus der offiziell freigegebenen Quelle und zeige fehlende/mehrdeutige Ziele im Fehlerreport.
 - Ein Zielkatalog ist versioniert und read-only; frühere Zuweisungen behalten ihren ursprünglichen Zielstand. Überleitungen zwischen Versionen sind eigene überprüfte Zuordnungen.
 - **Offen:** Quellen und Textweitergaberechte juristisch/organisatorisch klären, bevor offizielle Volltexte im öffentlichen Repo erscheinen. Vorher nur synthetische Testdaten.
+
+## Vorschlag zur fachlichen MVP-Freigabe (2026-11-23)
+
+[Versionierter BiVo-Katalog, Importschema, Validierungsworkflow und Akzeptanztests](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md#3-f06--versionierter-offizieller-bivo-2021-katalog) sind als **Freigabevorschlag** präzisiert. Keine offiziellen Codes oder Volltexte werden ohne geprüfte Quelle und Weitergaberechte ins öffentliche Repository aufgenommen. Die konkrete Quelle, Version, Freigabeverantwortung und Behandlung von Quellfehlern bleiben offen.

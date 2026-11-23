@@ -45,3 +45,7 @@ Ein Ticketstatus, bestandene Pipeline, Fokuszeit oder Quizpunktzahl ist **noch k
 - Automatische Fremdsystemverweise kommen zunächst als **potenzielle** Evidenz, nicht als Abschlussentscheidung.
 - Statistiken zeigen immer **verifizierte Ziele / anwendbare Pflichtziele**, separat geplante und geübte Ziele; nicht ein undurchsichtiger Gesamtscore.
 - **Akzeptanz:** Ein Jira-Ticket wechselt auf Done, der Lernzielstatus bleibt 'nicht verifiziert', bis berechtigter Mentor bewusst prüft. Berechtigungsgrenzen und Verifizierung ohne Begründung werden negativ getestet.
+
+## Vorschlag zur fachlichen MVP-Freigabe (2026-11-23)
+
+Die vorgeschlagene [interne 0–4-Rubrik mit beobachtbaren Kriterien und Evidenzworkflow](../requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md#2-f11--entwicklungsstufen-04-interne-rubrik-vorschlag) unterscheidet **0 = nicht ausreichend belegt** von fehlender Fähigkeit. Stufen sind ausdrücklich weder amtliche QV-Noten noch automatisch aus Tasks, Zeit oder XP ableitbar. Bewertungsrechte, Belegstandard und Freigabe sind **noch zu entscheiden**.

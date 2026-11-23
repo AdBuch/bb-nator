@@ -67,3 +67,9 @@ Die [Feature-Liste F01–F31](features/README.md) und der [konsolidierte Wunsch-
 5. Anschliessend Lernendenalltag (F13–F15), Integrationen (F16–F19) und Erweiterungen gemäß Release-Plan.
 
 Die neue Branch/PR-Prüfung und zu prüfende Sicherheitsauffälligkeiten stehen in [BRANCH_AUDIT_2026-11-23.md](roadmap/BRANCH_AUDIT_2026-11-23.md).
+
+## v0.2: fachlicher Freigabevorschlag (2026-11-23)
+
+Die fünf ausgewählten *Vorschläge* wurden in [RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md](requirements/RELEASE_0_2_MVP_APPROVAL_PROPOSAL.md) konkretisiert: LDAP + lokale Rollen (F01), interne Kompetenzstufen 0–4 (F11), versionierter offizieller BiVo-Import (F06), fünf Startvorlagen T01–T05 (F29/F10) und der durchgängige MVP-Kernworkflow. **Kein Organisations-, Datenschutz-, Rubrik- oder Quellenentscheid wird dadurch automatisch genehmigt.** Das fachliche Review und die menschliche Freigabe stehen noch aus; die bestehenden v0.2-Release-Gates gelten unverändert.
+
+Die Vorlagen T01–T05 dürfen als **kleiner MVP-Inhalt** in v0.2 vorgeschlagen werden, während der Ausbau der Aufgabenbibliothek weiterhin v0.3+ ist.
