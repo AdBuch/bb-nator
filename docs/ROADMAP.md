@@ -48,3 +48,22 @@ Ende v0.2 mit F01–F03 und F09–F11: Ein Mentor und mehrere Lernende melden si
 | Definition der Kompetenzstufen 0–4 | [F11](features/F11-nachweise-bewertung.md) |
 | Jira-EDU-Projekt und Felder | [F16](features/F16-jira-integration.md) |
 | KI-Anbieter | [F24](features/F24-hinweise-ki.md) |
+
+## Konsolidierter Feature-Backlog (Review vom 2026-11-23)
+
+Die [Feature-Liste F01–F31](features/README.md) und der [konsolidierte Wunsch-/Zielabgleich](roadmap/PRODUCT_BACKLOG.md) sind die Grundlage für weitere Tickets. Bestehende Release-Gates aus [RELEASES.md](requirements/RELEASES.md) bleiben gültig. **Keine neuen Funktionen wurden allein durch diese Dokumentation implementiert.**
+
+### Weitere diskutierte Inhalte
+- **F29 Aufgabenbibliothek** (v0.3 erste Vorlagen): konkrete Ausbildungsaufgaben vom Java-Einstieg über Maven/JUnit/Git, APIs und Testing bis zu Projektarbeiten. Ausbildungs-Assistent bleibt F10.
+- **F30 Ausbildungskalender** (v0.4 Kandidat): abgestimmte Termine, Meilensteine und Schul-/üK-Kollisionen, ohne HR-Kalender zu kopieren.
+- **F31 AI-/MCP-Lernlabor** (v0.5–0.7 Kandidat): Lernende bauen und testen einfache Agenten; klar von **F24** (KI-Hilfe innerhalb des Portals) getrennt.
+- **F08 Ausbildungsweg S1–S8** präzisiert: Programmierung → AI-Modelle/APIs → isolierte Projekte → Tests → Prompting/Business-Readiness → Teamalltag → Verantwortung → IPA.
+
+### Nächste kleine Implementierungsinkremente nach PR #10
+1. Login-UI, sichere Administration von Konten/Rollen/Mentor-Zuordnung; Rate Limiting und Datenschutzprüfung (F01).
+2. Zugriffsklassen, Eigentümer/Sichtbarkeit und Sensitivitäts-Access-Log mit Negativtests (F03).
+3. Verifizierter Bildungsplanimport und sieben quellenscharfe Perspektiven (F06, F07).
+4. Individueller Plan S1–S8, zielgebundene Aufgaben, getrennte Evidenz und Mentor-Cockpit (F08–F12).
+5. Anschliessend Lernendenalltag (F13–F15), Integrationen (F16–F19) und Erweiterungen gemäß Release-Plan.
+
+Die neue Branch/PR-Prüfung und zu prüfende Sicherheitsauffälligkeiten stehen in [BRANCH_AUDIT_2026-11-23.md](roadmap/BRANCH_AUDIT_2026-11-23.md).

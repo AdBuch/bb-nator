@@ -38,3 +38,9 @@ Numbers mean *commits ahead/behind*, not unique product features or missing chan
 
 ## Branch cleanup policy (proposal only)
 Once PR #10 is independently reviewed and merged, delete merged feature branches if desired, retain versioned release branches and use GitHub branch protection. This audit deliberately performs **no deletion**.
+
+## Nachtrag am 2026-11-23: PR #10 inzwischen gemergt
+
+Bei der zweiten Live-Prüfung wurde [PR #10](https://github.com/AdBuch/bb-nator/pull/10) als **closed/merged** in `release/0.2-learning-path` bestätigt. Die oben notierte OPEN-Angabe bezeichnet den früheren Snapshot während dieser Prüfung. Damit sind alle bis dahin bekannten PRs #1–#10 geschlossen (PR #5 ohne Merge); ein neuer Dokumentations-PR entsteht separat.
+
+Die Identitäts-API und die RLS-Laufzeitrolle sind also im **Release-Branch**, nicht automatisch auf `main` oder schon als fertige Produktionsauthentifizierung. Angular-Login-UI, Rollenadministration, Login-Rate-Limit, Zugriffsklassen und Access-Logs bleiben offen. Vor produktivem Einsatz die durch PR #10 aufgenommenen `scripts/__pycache__/*.pyc` prüfen und entfernen. Revisionsstand/Commitzählungen in obiger Branch-Tabelle sind Momentaufnahmen und können nach den Merges abweichen.

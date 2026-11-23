@@ -39,3 +39,11 @@ Kern des Datenschutzkonzepts.
 
 ## Quellen
 - PRIVACY.md §1, §2, §6
+
+## Präzisierung: verbindliche Sicherheitsgates (2026-11-23)
+
+- Jede personenbezogene/mandanteneigene Fachentität trägt Klasse A/B/C/D und einen nachvollziehbaren Besitzer, Mandantenkontext und Sichtbarkeit. Globale offizielle Quellenkataloge und technische Migrationsmetadaten bleiben die dokumentierten Ausnahmen.
+- **Backend kontrolliert** Zugriff pro Rolle, eigene Person, Mentorenzuordnung, Schutzklasse und Mandant in jedem Use Case. Frontendfilter sind niemals Sicherheitsgrenze.
+- Für Klasse D sowie geteilte Klasse C werden Lese-/Schreibzugriffe mit Actor, Record-ID, Zeitpunkt und Zweck/Operation protokolliert, **niemals** Dokument-/Journalinhalt oder Tokens.
+- Verpflichtende Negativtests: fremder Mentor, fremder Mandant, ungültige Session, fehlender CSRF-Schutz, direkte Objekt-ID, fehlende Klassendeklaration.
+- **MVP-Gate:** Nachweis der Datenbank-Laufzeitrolle ohne Superuser/BYPASSRLS (Umsetzung aus PR #10). Ohne erfolgreich geprüfte Auth/RLS/Access-Log-Kette keine echten Lernendendaten.
