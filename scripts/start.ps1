@@ -14,6 +14,8 @@ if ($LASTEXITCODE -eq 0) {
 } else {
     Write-Warning "Git fetch failed. Using installed version."
 }
+python scripts/ensure_env.py
+if ($LASTEXITCODE -ne 0) { throw "Could not prepare .env." }
 docker compose up --build -d
 if ($LASTEXITCODE -ne 0) { throw "Docker Compose failed." }
 Write-Host "Open http://127.0.0.1:8088. Admin token in .update-token. Keep terminal open."

@@ -52,7 +52,7 @@ class LdapSignInIntegrationTest {
             InMemoryDirectoryServer server = new InMemoryDirectoryServer(config);
             server.add("dn: dc=example,dc=org", "objectClass: top", "objectClass: domain", "dc: example");
             server.add("dn: ou=people,dc=example,dc=org", "objectClass: organizationalUnit", "ou: people");
-            for (String uid : new String[]{"mia.admin", "noah.unknown", "lea.inactive", "ben.foreign", "tim.noroles"}) {
+            for (String uid : new String[]{"mia.admin", "noah.unknown", "lea.inactive", "ben.foreign", "tim.noroles", "eva.revoked"}) {
                 server.add("dn: uid=" + uid + ",ou=people,dc=example,dc=org", "objectClass: inetOrgPerson",
                         "uid: " + uid, "cn: Fiktiv " + uid, "sn: Fiktiv", "userPassword: pw-" + uid);
             }
@@ -189,6 +189,36 @@ class LdapSignInIntegrationTest {
         mvc.perform(post("/api/v1/session/logout").session(session).cookie(csrf).header("X-XSRF-TOKEN", csrf.getValue()))
                 .andExpect(status().isNoContent());
         assertThat(session.isInvalid()).isTrue();
+    }
+
+    @Test
+    void deactivationEndsAnExistingSession() throws Exception {
+        insertUser(TENANT, "eva.revoked", true, "MENTOR");
+        MockHttpSession session = (MockHttpSession) login("eva.revoked", "pw-eva.revoked").getRequest().getSession(false);
+        mvc.perform(get("/api/v1/session/me").session(session)).andExpect(status().isOk());
+
+        jdbc.update("UPDATE app_user SET active = false WHERE tenant_id = ? AND ldap_subject = 'eva.revoked'", TENANT);
+        mvc.perform(get("/api/v1/session/me").session(session)).andExpect(status().isForbidden());
+        assertThat(session.isInvalid()).isTrue();
+        jdbc.update("UPDATE app_user SET active = true WHERE tenant_id = ? AND ldap_subject = 'eva.revoked'", TENANT);
+    }
+
+    @Test
+    void changedRolesApplyToAnExistingSession() throws Exception {
+        MockHttpSession session = (MockHttpSession) login("mia.admin", "pw-mia.admin").getRequest().getSession(false);
+        jdbc.update("""
+                INSERT INTO role_assignment (id, tenant_id, user_id, role)
+                SELECT ?, tenant_id, id, 'MENTOR' FROM app_user WHERE tenant_id = ? AND ldap_subject = 'mia.admin'
+                ON CONFLICT DO NOTHING""", UUID.randomUUID(), TENANT);
+        try {
+            mvc.perform(get("/api/v1/session/me").session(session))
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.roles.length()").value(2));
+        } finally {
+            jdbc.update("""
+                    DELETE FROM role_assignment WHERE tenant_id = ? AND role = 'MENTOR'
+                      AND user_id = (SELECT id FROM app_user WHERE tenant_id = ? AND ldap_subject = 'mia.admin')""", TENANT, TENANT);
+        }
     }
 
     @Test

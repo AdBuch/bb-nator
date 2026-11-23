@@ -2,7 +2,7 @@
 
 | Release | Status | Schutzklassen | Abhängig von |
 | --- | --- | --- | --- |
-| v0.2 | Grundlage umgesetzt (PR #8) | A | — |
+| v0.2 | Grundlage umgesetzt (PR #8), im Betrieb wirksam seit PR #10 | A | — |
 
 ## Ziel
 Mehrere Lehrbetriebe können dieselbe Installation nutzen, ohne Daten des anderen zu sehen. Lokal läuft genau ein Mandant.

@@ -1,5 +1,8 @@
 package ch.bbnator.config;
 
+import ch.bbnator.identity.application.ResolveSignInAccount;
+import ch.bbnator.identity.infrastructure.ActiveAccountFilter;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -8,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
@@ -28,7 +32,10 @@ public class SecurityConfiguration {
      * everything else is denied until a feature explicitly opens it for a role.
      */
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http, CsrfTokenRepository csrfTokenRepository) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http, CsrfTokenRepository csrfTokenRepository,
+                                           ObjectProvider<ResolveSignInAccount> resolveSignInAccount) throws Exception {
+        resolveSignInAccount.ifAvailable(resolver ->
+                http.addFilterBefore(new ActiveAccountFilter(resolver), AnonymousAuthenticationFilter.class));
         return http
                 .csrf(csrf -> csrf
                         .csrfTokenRepository(csrfTokenRepository)

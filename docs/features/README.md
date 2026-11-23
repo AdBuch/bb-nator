@@ -12,7 +12,7 @@ Die Reihenfolge und Releases stehen in der [Roadmap](../ROADMAP.md). Grundlagen:
 
 | ID | Feature | Release | Status |
 | --- | --- | --- | --- |
-| [F01](F01-identitaet-anmeldung.md) | Identität und Anmeldung (LDAP, lokale Rollen) | v0.2 | In Arbeit |
+| [F01](F01-identitaet-anmeldung.md) | Identität und Anmeldung (LDAP, lokale Rollen) | v0.2 | Umgesetzt (API); UI offen |
 | [F02](F02-mandantenfaehigkeit.md) | Mandantenfähigkeit | v0.2 | Grundlage umgesetzt (PR #8) |
 | [F03](F03-datenschutz-mechanismus.md) | Datenschutz-Mechanismus (Schutzklassen, Sichtbarkeit, Zugriffsprotokoll) | v0.2 | Spezifiziert |
 | [F04](F04-einwilligungen.md) | Einwilligungsregister | v0.3 | Spezifiziert |

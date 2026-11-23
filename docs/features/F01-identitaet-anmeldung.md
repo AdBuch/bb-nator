@@ -2,7 +2,7 @@
 
 | Release | Status | Schutzklassen | Abhängig von |
 | --- | --- | --- | --- |
-| v0.2 | In Arbeit | A | [F02](F02-mandantenfaehigkeit.md) |
+| v0.2 | Umgesetzt (API, PR #10); Anmeldemaske und Benutzerverwaltung offen | A | [F02](F02-mandantenfaehigkeit.md) |
 
 ## Ziel
 Benutzer melden sich mit ihrem Firmenkonto an. BB-NATOR kennt nur Benutzer, die lokal angelegt und aktiv sind, und vergibt Rollen selbst.
@@ -41,7 +41,21 @@ Login-Name und Anzeigename sind Klasse A. Fehlgeschlagene Logins werden ohne Pas
 
 ## Entscheide
 <!-- Datum – Entscheid – wer -->
-- —
+- 2026-11-14 – Anmeldung über LDAP, Rollen lokal in BB-NATOR – Product Owner
+- 2026-11-23 – Benutzerschlüssel konfigurierbar (`LDAP_SUBJECT_ATTRIBUTE`, Standard `uid`), endgültige Wahl offen – Umsetzung PR #10
+- 2026-11-23 – Konto wird bei jedem Request neu geprüft: Deaktivierung beendet laufende Sitzungen, Rollenänderungen gelten sofort – Review PR #10
+- 2026-11-23 – Login-Tests mit eingebettetem LDAP-Verzeichnis statt Docker-Container – Umsetzung PR #10
+
+## Umgesetzt
+- `GET /api/v1/session/csrf`, `POST /api/v1/session/login`, `GET /api/v1/session/me`, `POST /api/v1/session/logout`
+- Erster Admin über `BBNATOR_BOOTSTRAP_ADMIN`
+- Laufzeitrolle `bbnator_app`, Passwort aus `APP_DB_PASSWORD` (wird bei Updates automatisch erzeugt, falls es fehlt)
+
+## Noch offen
+- Anmeldemaske im Angular-Client
+- Benutzer- und Rollenverwaltung (API und UI)
+- Schutz gegen Durchprobieren von Passwörtern (Rate Limiting)
+- Antwortzeiten bei unbekanntem Konto und falschem Passwort angleichen
 
 ## Quellen
 - ADR-0002
