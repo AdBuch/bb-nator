@@ -33,3 +33,16 @@ Reflexionen sind standardmässig privat.
 ## Quellen
 - PRODUCT_VISION.md
 - RELEASES.md v0.3
+
+## Präzisierung: Lernenden-Startseite als täglicher Begleiter (2026-11-23)
+
+**Oben:** persönliche Begrüssung, heutiges Ziel, nächste Aufgabe und ein sichtbarer Button 'Ich brauche Hilfe'. Die Seite ist nicht die verkleinerte Mentorenansicht.
+
+1. **Heute:** aktuelle Aufgabe mit Purpose/Abgabe, leicht verständlichem Status, nächstem Schritt, Abhängigkeiten und freiwillig gewähltem Fokusblock.
+2. **Mein Lernpfad:** acht Semester mit dem aktuellen Meilenstein, eigene Interessen und vereinbarte Ziele; fehlende Belege, ohne beschämende Scores.
+3. **Reflexion:** 'Was habe ich heute erreicht?', 'Was war schwierig?', 'Was mache ich als Nächstes?' und optionaler Mood-Check; Entwurf privat, explizites Teilen.
+4. **Nachweise & Rückmeldung:** eingereichte Aufgaben, erwartete Reviews, erklärbare Mentorhinweise und nächster persönlicher Skill-Schritt.
+5. **Motivation:** nur bei Einwilligung XP/Badges/Spiel/Fokus; keine Vergleiche zwischen Lernenden.
+6. **Schule / üK / Dokumente:** externe Lernorte mit Quelle, Freigabe und aktueller Datenlage.
+
+**Akzeptanz:** Lernende finden nächste Aufgabe ohne Jira-Zugang, können Blocker melden und eine Reflexion privat speichern; Mentor sieht nur explizit Geteiltes. Funktioniert mobil, tastaturbedienbar und mit aussagekräftigen Leerzuständen.

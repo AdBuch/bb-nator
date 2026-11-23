@@ -35,3 +35,15 @@ Aufgaben sind Klasse B.
 
 ## Quellen
 - BB_COCKPIT.md §3C
+
+## Präzisierung: vollständige Aufgabenerteilung (2026-11-23)
+
+Pflichtdaten beim Zuweisen: **warum** die Aufgabe existiert, Lernziel(e) mit Quellen/Versionen, verständlicher Kontext, Abgaben, Akzeptanzkriterien, verantwortliche Person und ein geplanter Reviewweg. Optional: Schätzung/Story Points, Voraussetzungen, Schwierigkeitsgrad, Hilfestufen, Teststrategie, Termin und Freigabedatum.
+
+**Workflow:** Entwurf → Bereit → Zugewiesen → In Arbeit ↔ Blockiert → Review → Erledigt (oder Abgebrochen). Fachlicher Nachweisstatus wird **separat** verwaltet; mehrere Lernende erhalten jeweils individuelle Fortschritts-/Kompetenzeinträge. Vorlagen liefert F29, der Assistent bleibt Autorisierungspunkt.
+
+**Eingabehilfe:** offene BiVo-Lücken, vorhandene Skills, Lehrpfad, freie Wahl der Lernenden und aktuelle Schul-/üK-Phasen dürfen Hinweise liefern, aber keine automatische Aufgabe oder Bewertung erzwingen.
+
+**Akzeptanzfälle:** Entwurf ohne Ziel darf gespeichert, aber nicht freigegeben werden; Kohorten-Zuweisung hat persönliche Task-IDs; Lernende sehen nur eigene Zuweisung; doppelte Veröffentlichung erzeugt keinen zweiten Jira-Vorgang (F16); Fehlberechtigungen und Validierungsfehler werden getestet.
+
+**Konkrete Startvorlagen:** Java/Canvas, Maven/JUnit, Git, REST/API/JSON, Go-Experimente, Integrationstests, Angular, Docker/CI, Security, AI-/MCP-PoC, IPA, jeweils ohne interne Firmendaten.
