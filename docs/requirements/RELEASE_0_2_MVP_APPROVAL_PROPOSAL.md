@@ -26,29 +26,39 @@ Ein rein synthetischer Demo-Modus darf früher erprobt werden. **Echte persönli
 ### Vorgeschlagener Ablauf
 1. Eine Person öffnet die Anmeldeseite; die Anwendung zeigt einen generischen Anmeldefehler ohne Konten-Enumeration.
 2. Über den vorhandenen `IdentityProvider`-Port wird LDAPS-Bind verifiziert. **Ein erfolgreicher LDAP-Bind allein autorisiert nichts.**
-3. Ein aktives lokales Konto wird über einen stabilen, noch festzulegenden LDAP-Schlüssel und den sicheren Mandantenkontext gefunden. Fehlt es, wird die Anmeldung abgelehnt.
+3. Ein vorhandenes lokales Konto wird über einen stabilen, noch festzulegenden LDAP-Schlüssel und den sicheren Mandantenkontext gefunden. Bei gültigem **Erstlogin** entsteht idempotent ein Konto im Status `PENDING` **ohne Rollen**; ein Konto in `DISABLED` bleibt gesperrt. Ausbildungszugriff setzt lokale Freigabe voraus.
 4. Der Server erstellt eine neue Session mit `HttpOnly`, `Secure` unter HTTPS und `SameSite=Lax`; Session wird bei Anmeldung erneuert; CSRF-Schutz für zustandsverändernde Requests.
 5. Serverseitige Rollen `APPRENTICE`, `MENTOR`, `BB_LEAD`, `ADMIN`, `AUDITOR` und konkrete Zuordnungen regeln die Fachaktionen. Mehrere Rollen sind nur nach geprüftem Bedarf vorgesehen.
-6. Das Admin-UI soll aktive/deaktivierte Konten, Rollenzuordnung, Mentorenzuordnung und einen protokollierten Änderungsverlauf anbieten. Das Anlegen eines **lokalen** Kontos stellt kein neues LDAP-Konto her.
+6. Das Admin-UI soll `PENDING`/`ACTIVE`/`DISABLED`, Rollen, Mentorenzuordnung, manuelle LDAP-Suche und selektiven Mehrfachimport mit `neu`/`vorhanden`/`Konflikt`-Vorschau sowie einen protokollierten Änderungsverlauf anbieten. Das Anlegen eines **lokalen** Kontos stellt kein neues LDAP-Konto her.
 7. Abmelden invalidiert die Session; Deaktivierung entzieht Zugriff auch für noch laufende Sessions nach der zu spezifizierenden Durchsetzung.
 
 ### Minimale API-/Datenanforderungen zur Prüfung
 - **Vorschlag**: `GET /api/v1/me` mit Benutzer-ID, erlaubten Rollen und Anzeigeinformationen; `POST /api/v1/logout`; `GET/POST/PATCH /api/v1/admin/users` sowie explizites Mapping `user ↔ mentor` nach Freigabe.
 - `LocalUser`: ID, Tenant-ID, Directory-Identifier, aktiv, Anzeigename und Rollenbeziehungen. Rollenänderungen haben Actor, Zeitpunkt und Änderungsgrund.
 - Kein LDAP-Passwort in DB, API, Logs, Browser-Storage oder Fixtures. LDAP-Konfiguration und Bind-Credentials sind Betreiber-Secrets.
-- Bei fehlendem Tenant, unvollständigem Mapping, nicht-aktivem Benutzer oder LDAP-Störung: **keine implizite Benutzeranlage und kein Fallback auf Demorechte**.
+- Bei fehlendem Tenant, unvollständigem Mapping, gesperrtem lokalem Benutzer oder LDAP-Störung: **kein Ausbildungszugriff und kein Fallback auf Demorechte**. Die bewusste Erstanlage eines `PENDING`-Kontos ist davon ausgenommen.
 
 ### Verbindliche vorgeschlagene Testfälle
 - Erfolgreicher LDAP-Bind + aktiver lokaler Account + richtige Rolle → auf eigene zugelassene Datensätze beschränkt.
-- Korrekte LDAP-Credentials ohne lokalen Account, deaktivierter Account, falsches Kennwort, LDAP-Ausfall → keine Session.
+- Korrekte LDAP-Credentials ohne lokalen Account → neue `PENDING`-Session nur für den Freigabestatus, keine Ausbildungsberechtigung; deaktivierter Account, falsches Kennwort oder LDAP-Ausfall → kein neuer Login.
 - Login-Bruteforce/Drosselung und Enumeration-Schutz werden in einer separaten Security-Review nachgewiesen.
 - Ohne Session: Fach-API 401/403, keine personenbezogenen Details; mit fremder Mentorenzuordnung: 403/404 ohne Datenleck.
 - Fehlender/falscher CSRF-Token verhindert POST/PATCH/DELETE; Session-Fixation-/Logout-Test.
 - Cross-Tenant-ID / fehlender Tenant: 0 Daten, Schreibzugriff abgewiesen; effektiver DB-Benutzer weder Superuser noch BYPASSRLS.
 - Nur berechtigte Admins ändern lokale Rollen; Rollenzuweisung und Deaktivierung sind protokolliert.
 
+### Im Gespräch anschliessend ausdrücklich beschlossene F01-Regeln (2026-11-23)
+- **v0.2 On-Premises:** Ein Organisationsmandant mit LDAP/LDAPS. Weitere OIDC-Provider und organisationsverwaltete SSO-Konfiguration erst später, aber Identitätsmodell dafür erweiterbar.
+- **Erstlogin:** gültiger LDAP-Bind erzeugt bei fehlender lokaler Identität ein rollenloses `PENDING`-Konto; nur Freigabestatus/Logout, keine Ausbildungsdaten.
+- **Manuell:** Admin-UI bietet LDAP-Suche, Auswahl, Importvorschau und gezielten Import ohne automatische Rollenvergabe.
+- **Attribute:** Anzeigename und E-Mail bei erfolgreichem Login aktualisieren. Rollen, Mitgliedschaft, Mentorenzuordnung und Freigabestatus bleiben lokal; stabile LDAP-ID statt E-Mail-Matching.
+- **Verantwortung:** `ADMIN` technische Konfiguration/privilegierte Rechte, `BB_LEAD` fachliche Einladungen, Freigaben und Mentor-/Lernendenrollen; `ADMIN` hat ohne weitere Fachrolle kein allgemeines Ausbildungsdaten-Leserecht.
+- **Sessions:** lokale Sperre sofort; Rollenwechsel beim nächsten Request; LDAP-Kontostatus **alle 15 Minuten für aktive Sessions prüfen**; bestätigt gesperrte LDAP-Accounts verlieren alle Sessions. Kein periodischer vollständiger LDAP-Benutzersync.
+- **Spätere Cloud:** Organisationserstellung nur nach Plattformadmin-Freigabe; Organisations-SSO ohne Mitgliedschaft erzeugt Beitrittsantrag, keine automatische Rollenvergabe; nicht zugeordnete Benutzer ohne Ausbildungsfunktionen (allenfalls Minigames).
+- Einzelheiten, Sicherheitsrisiken, UI-Schritte und Tests sind in [F01](../features/F01-identitaet-anmeldung.md#ausführungsdetails-zum-beschlossenen-ldap-mvp-2026-11-23) nachgeführt. Änderungen am bereits akzeptierten ADR-0002 (der noch «lokaler Benutzer muss existieren» formuliert) bedürfen eines **separaten nachvollziehbaren ADR-Updates**, nicht eines stillen Überschreibens.
+
 ### Fachliche Freigabe noch offen
-**F01-A** stabiler LDAP-Identifier und Änderungsstrategie; **F01-B** sichere Bestimmung des Mandanten (F02); **F01-C** erste Admin-Kontoanlage, berechtigte Administratoren und Vier-Augen-Kontrolle; **F01-D** erlaubte Rechte pro Rolle, insbesondere BB_LEAD/AUDITOR und Klasse D; **F01-E** konkrete Drosselungs-/Sperrstrategie und Session-Laufzeit; **F01-F** Betreiber-HTTPS/LDAPS und Secret-Verwaltung. Diese Antworten werden **nicht** aus dieser Spezifikation abgeleitet.
+**F01-A** stabiler LDAP-Identifier und Änderungsstrategie; **F01-B** sichere Bestimmung des Mandanten (F02); **F01-C** erste Admin-Kontoanlage, berechtigte Administratoren und Vier-Augen-Kontrolle; **F01-D** erlaubte Rechte pro Rolle, insbesondere BB_LEAD/AUDITOR und Klasse D; **F01-E** konkrete Drosselungs-/Sperrstrategie, Inaktivitäts-/Maximallaufzeit und Verhalten bei LDAP-Ausfall (das **15-Minuten-Statusintervall ist beschlossen**); **F01-F** Betreiber-HTTPS/LDAPS und Secret-Verwaltung sowie verlässliches LDAP-Statusattribut. Diese Antworten werden **nicht** aus dieser Spezifikation abgeleitet.
 
 ## 2. F11 · Entwicklungsstufen 0–4 (interne Rubrik, Vorschlag)
 
