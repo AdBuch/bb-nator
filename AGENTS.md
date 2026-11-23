@@ -21,6 +21,7 @@ Follow [STEPS.md](STEPS.md): **plan → develop → independent review → test 
 - [Direct Jira/GitLab and BCS Agent integration architecture](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
 - [Identity, tenancy and data protection decisions](docs/architecture/ADR-0002-identity-tenancy-data-protection.md)
 - [Data protection mechanism](docs/requirements/PRIVACY.md)
+- [Roadmap](docs/ROADMAP.md) and [feature documents](docs/features/README.md): update the feature's status and decisions when implementing it
 
 ## Architecture
 - Monorepo; modular monolith.
