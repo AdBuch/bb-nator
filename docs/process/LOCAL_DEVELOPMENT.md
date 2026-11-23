@@ -2,7 +2,8 @@
 
 ## Requirements
 - Docker Engine + Compose plugin, or Java 21/Maven 3.9+ and Node 24.15+.
-- `cp .env.example .env`; replace `POSTGRES_PASSWORD` with a local strong value.
+- `cp .env.example .env`; replace `POSTGRES_PASSWORD` and `APP_DB_PASSWORD` with two different strong local values.
+- Existing `.env` from before v0.2: add `APP_DB_PASSWORD`, otherwise Compose refuses to start.
 - No real apprentice data or proprietary company information in demo environments.
 
 ## Start full stack
@@ -20,6 +21,26 @@ docker compose down
 # Only when you deliberately want to delete all local database data:
 docker compose down -v
 ```
+
+## Database roles
+- `POSTGRES_USER` owns the schema and runs Flyway migrations.
+- The backend connects as `bbnator_app` (no superuser, no `BYPASSRLS`), so row-level tenant isolation applies. Its login password is set from `APP_DB_PASSWORD` after each migration.
+- Running the backend directly as `POSTGRES_USER` (fast loop below) bypasses row-level security; repositories still filter by tenant, but do not rely on that for tests of isolation.
+
+## Sign-in (non-demo)
+Remove `demo` from `SPRING_PROFILES_ACTIVE` and configure the directory in `.env`:
+```bash
+SPRING_PROFILES_ACTIVE=
+LDAP_URL=ldaps://directory.example.org:636
+LDAP_BASE=dc=example,dc=org
+LDAP_USER_SEARCH_BASE=ou=people
+LDAP_USER_SEARCH_FILTER=(uid={0})        # Active Directory: (sAMAccountName={0})
+LDAP_SUBJECT_ATTRIBUTE=uid               # stable key stored in BB-NATOR
+LDAP_MANAGER_DN=                         # service account if anonymous search is not allowed
+LDAP_MANAGER_PASSWORD=
+BBNATOR_BOOTSTRAP_ADMIN=<your directory uid>
+```
+On start the tenant `BBNATOR_TENANT_ID` and one administrator with that subject are created if missing. A directory account without a local, active user with a role cannot sign in. API flow: `GET /api/v1/session/csrf`, `POST /api/v1/session/login` with header `X-XSRF-TOKEN`, `GET /api/v1/session/me`, `POST /api/v1/session/logout`. The sign-in screen in the Angular app follows in a separate change.
 
 ## Fast local frontend/backend feedback loop
 ```bash

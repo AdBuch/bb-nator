@@ -7,6 +7,10 @@ spring:
     password: ${DB_PASSWORD:}
   flyway:
     enabled: true
+    # Migrations run as the owner (SPRING_FLYWAY_USER/PASSWORD in compose.yaml);
+    # the application itself connects as the RLS-bound role bbnator_app.
+    placeholders:
+      appdbpassword: ${APP_DB_PASSWORD:}
   jpa:
     open-in-view: false
     hibernate:
@@ -25,6 +29,35 @@ management:
       show-details: never
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+        secure: ${SESSION_COOKIE_SECURE:false}
   error:
     include-message: never
     include-stacktrace: never
+
+bbnator:
+  demo:
+    # The demo profile refuses to start unless this is explicitly true (see DemoSafetyGuard).
+    acknowledged: ${BBNATOR_DEMO_ACKNOWLEDGED:false}
+  auth:
+    tenant-id: ${BBNATOR_TENANT_ID:local}
+    ldap:
+      # Empty URL disables sign-in: every login attempt is answered with 503.
+      url: ${LDAP_URL:}
+      base: ${LDAP_BASE:}
+      user-search-base: ${LDAP_USER_SEARCH_BASE:ou=people}
+      user-search-filter: ${LDAP_USER_SEARCH_FILTER:(uid={0})}
+      subject-attribute: ${LDAP_SUBJECT_ATTRIBUTE:uid}
+      manager-dn: ${LDAP_MANAGER_DN:}
+      manager-password: ${LDAP_MANAGER_PASSWORD:}
+      # Only for local tests; production must use ldaps://.
+      allow-insecure: ${LDAP_ALLOW_INSECURE:false}
+  bootstrap:
+    # Creates the tenant and one ADMIN user with this directory subject if missing.
+    admin-subject: ${BBNATOR_BOOTSTRAP_ADMIN:}
+    tenant-name: ${BBNATOR_TENANT_NAME:Lokaler Lehrbetrieb}

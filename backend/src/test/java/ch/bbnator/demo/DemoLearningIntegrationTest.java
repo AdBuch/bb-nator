@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.http.MediaType;
 
-@SpringBootTest
+@SpringBootTest(properties = "bbnator.demo.acknowledged=true")
 @AutoConfigureMockMvc
 @ActiveProfiles("demo")
 @Import(PostgresTestConfiguration.class)

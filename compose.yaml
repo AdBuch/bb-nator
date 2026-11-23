@@ -21,12 +21,27 @@ services:
       context: ./backend
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: demo
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-demo}
+      BBNATOR_DEMO_ACKNOWLEDGED: ${BBNATOR_DEMO_ACKNOWLEDGED:-true}
       DB_HOST: postgres
       DB_PORT: "5432"
       DB_NAME: ${POSTGRES_DB:-bbnator}
-      DB_USER: ${POSTGRES_USER:-bbnator}
-      DB_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      # Runtime connects as bbnator_app (no superuser, no BYPASSRLS) so row-level security applies.
+      DB_USER: bbnator_app
+      DB_PASSWORD: ${APP_DB_PASSWORD:?Set APP_DB_PASSWORD in .env}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?Set APP_DB_PASSWORD in .env}
+      # Flyway migrates as the database owner.
+      SPRING_FLYWAY_USER: ${POSTGRES_USER:-bbnator}
+      SPRING_FLYWAY_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      BBNATOR_TENANT_ID: ${BBNATOR_TENANT_ID:-local}
+      BBNATOR_BOOTSTRAP_ADMIN: ${BBNATOR_BOOTSTRAP_ADMIN:-}
+      LDAP_URL: ${LDAP_URL:-}
+      LDAP_BASE: ${LDAP_BASE:-}
+      LDAP_USER_SEARCH_BASE: ${LDAP_USER_SEARCH_BASE:-ou=people}
+      LDAP_USER_SEARCH_FILTER: ${LDAP_USER_SEARCH_FILTER:-(uid={0})}
+      LDAP_SUBJECT_ATTRIBUTE: ${LDAP_SUBJECT_ATTRIBUTE:-uid}
+      LDAP_MANAGER_DN: ${LDAP_MANAGER_DN:-}
+      LDAP_MANAGER_PASSWORD: ${LDAP_MANAGER_PASSWORD:-}
     depends_on:
       postgres:
         condition: service_healthy
