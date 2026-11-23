@@ -32,3 +32,11 @@ Klasse B.
 ## Quellen
 - PRODUCT_VISION.md
 - BB_COCKPIT.md §5
+
+## Präzisierung: strukturierte Begleitung (2026-11-23)
+
+- Gesprächsvorbereitung mit Lernenden-Selbsteinschätzung, Agenda, offenen Blockern, nächsten Zielen und freiwillig geteilten Fragen.
+- Feedback benennt Beobachtung, Wirkung/Verbesserung und überprüfbare nächste Vereinbarung; Termin, Autor und vereinbarte Nachkontrolle bleiben nachvollziehbar.
+- Aufgaben und Kompetenzziele können aus einer Vereinbarung hervorgehen, aber ein Gespräch allein verifiziert keine Kompetenz.
+- Semester-Vorbereitung darf freigegebene Evidenz und Feedback als **Entwurf** bündeln, nicht automatisch als offiziellen Bericht absenden.
+- **Akzeptanz:** Lernende können Vereinbarungen lesen, Rückfragen stellen und sachlich berichtigen lassen; nur zugeordnete Mentoren sehen personenbezogene Protokolle.

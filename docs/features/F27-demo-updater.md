@@ -34,3 +34,11 @@ Demo-Profil öffnet Schreibzugriffe ohne Login; nie öffentlich betreiben.
 ## Quellen
 - RELEASE_0_2A.md
 - UPDATES.md
+
+## Präzisierung: Reifegrad und offene Sicherheit (2026-11-23)
+
+Die lokale Demo und der manuell gestartete Updater sind laut PR #6 auf dem Release-Branch implementiert. Das ist **kein** produktionsreifer, zentraler Deployment-Dienst. Noch offen: echte Anmeldung, sichere Adminrechte, Rollback bei abgebrochenem Build, Wartungsfenster, Update-Status über den Neustart, signierte/versionierte Releases, Schutz vor fremder Exposition.
+
+Der Starter holt bei Start Updates von erlaubtem Git-Remote und baut lokale Container. Der Button ist **nur vom selben Rechner** erreichbar (127.0.0.1, Token im Browser-Speicher). Dies nicht als Remote-Admin-Funktion anpreisen.
+
+**Akzeptanz für späteren Produktionsmodus:** nur autorisierte Administratoren, überprüfte Releases, Backups vor Schemaänderungen, klarer Rollback-/Recovery-Prozess und keine personalisierten Daten im öffentlichen Demo-Modus. Siehe F28.

@@ -35,3 +35,11 @@ Nur Verweise und Metadaten; Tokens mit minimalem Scope.
 ## Quellen
 - INTEGRATION_AND_REUSE_PLAN.md
 - BB_COCKPIT.md §3C
+
+## Präzisierung: Aufgaben und EDU-Workflow (2026-11-23)
+
+- **Direkter** Java/Spring-Jira-Adapter, kein Tinyops-Hop. Filter auf erlaubte EDU-Projekte, verantwortliche Personen, Vorgangstypen und Ausbildungszeitraum; JQL und Feld-Mapping konfigurierbar.
+- Ein BB-NATOR-Lerntask bleibt pädagogische Einheit mit Zielbeziehungen; Jira führt Issue-Status, Beschreibung und Transitions. Es gibt sowohl **bestehendes Ticket verknüpfen** als auch **Ticket nach Vorschau erstellen**.
+- Menschliche Bestätigung vor jeder Schreibaktion; idempotenter Create, Konflikthinweise statt blindem Überschreiben, begrenzte Pagination, Retry/Backoff, Sync-Zeitstempel.
+- Lernendenidentität wird über verifizierte externe IDs verknüpft, niemals allein anhand gleicher Namen. Nur erforderliche Metadaten speichern; keine Geheimnisse in Logs.
+- **Akzeptanz:** Bei API-Ausfall bleiben Lernaufgaben intern sichtbar und mit 'letzter Stand / Sync fehlgeschlagen' markiert; wiederholter Create erzeugt nur ein Jira-Ticket; Done verifiziert keine Kompetenz.

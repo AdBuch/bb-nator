@@ -33,3 +33,12 @@ Klasse C mit Einwilligung.
 
 ## Quellen
 - RELEASES.md v0.5
+
+## Präzisierung: spielerisches Lernen, nicht Lernendenranking (2026-11-23)
+
+**Ideen:** Skill-Baum mit nachvollziehbaren Lernwegen, persönliche XP-Ereignisse, Badges für reflektierte Aufgaben/Demos/Code Reviews, freiwillige Fokusmeilensteine und ein kurzes 'Bug Hunter'-Spiel zum Erkennen von Defekten und Tests.
+
+- Belohnungen visualisieren Motivation und erledigte Lernschritte, **nicht** amtliche Kompetenzstufe, Schulnote, Arbeitszeit oder Produktivität.
+- Kein öffentliches Ranking, keine versteckten negativen Scores, keine Pflichtteilnahme. Bei Nicht-Einwilligung funktioniert der gesamte Lernplan ohne Gamification weiter.
+- Skill-Baum verweist bei echten Zielnachweisen auf F11 und entkoppelt XP von Kompetenzverifizierung.
+- **Akzeptanz:** Wiederholungen lassen sich nicht unbegrenzt als neue Nachweise zählen; ein Learner kann Gamification abschalten und erhält keine Nachteile in der Bewertung.
