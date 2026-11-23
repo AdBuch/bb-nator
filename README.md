@@ -11,6 +11,7 @@
 - [Direct integration and reuse plan (Tinyops, BCS, Jira, GitLab)](docs/architecture/INTEGRATION_AND_REUSE_PLAN.md)
 - [Release targets, acceptance gates and branch names](docs/requirements/RELEASES.md)
 - [Data protection mechanism](docs/requirements/PRIVACY.md)
+- [Roadmap](docs/ROADMAP.md) and [feature documents](docs/features/README.md)
 
 ## Mission
 Help apprentices become independent, responsible software engineers while supporting the Swiss **Informatiker/in EFZ, Applikationsentwicklung (BiVo 2021)** learning objectives. The portal connects educational goals, practical evidence, mentoring, reflection, focus habits and preparation for the qualification procedure (QV/IPA).
